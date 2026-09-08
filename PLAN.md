@@ -3,8 +3,9 @@
 Living document. I keep this current so you don't have to remember where
 things stand. Last updated: 8 September 2026.
 
-**Places now on file:** Canterbury, Chongqing, Devon, Dover, Kunming,
-Lago Maggiore, Leshan, London, Menorca, Mount Siguniang, Segovia, Toledo.
+**13 places, 116 photographs.** Canterbury, Chongqing, Devon, Dover,
+Kunming, Lago Maggiore, Leshan, London, Menorca, Mount Siguniang, Segovia,
+Suzhou, Toledo.
 
 ---
 
@@ -22,29 +23,36 @@ Nothing moves on these until you answer.
 
 | # | What I need | Why it's blocked |
 |---|---|---|
-| B1 | **Two questions, 7 photographs** — see [/identify/](https://thewanderingwing.com/identify/) | The spelling of "Sujo", and which of three November shots are Canterbury vs Dover. Everything else is filed: 95 photographs, 11 places. |
-| B2 | **The copy, place by place** | Tell me what you actually remember about Siguniang, Segovia, Menorca, Lago Maggiore, London, Chongqing. I cut it down. 6 places still flagged. |
-| B3 | **The tagline** | "I don't fly a machine, I fly" pins the site to the drone. Keep, change, or drop — your call, and it matters before camera work lands. |
+| B1 | **The copy, place by place** | Tell me what you actually remember about each place and I cut it down. **12 places** now carry placeholder or old text. Start with any one — no need to do them all at once. |
+| B2 | **The tagline** | "I don't fly a machine, I fly" pins the site to the drone. Keep, change, or drop — your call, and it matters before camera work lands. |
 
 ---
 
 ## Next, in order
 
-1. **Reorganise the photo library** — script written and dry-run clean
-   (`reorganise.py`). Files by place with readable names, 14 byte-identical
-   duplicates dropped, 59 new portraits folded in. **Waiting on B1.**
-2. **Immersive hover** — currently the photo widens to the full screen
+1. **Immersive hover** — currently the photo widens to the full screen
    width but keeps the row height, so it reads as a zoom rather than an
    immersion. Should fill the whole viewport, and contract as soon as the
    cursor leaves where the photo used to be.
-3. **Rewrite the copy** with you (B2).
-4. **Use the portraits** — 55 of the new photos are portrait, which fixes
-   phone heroes cropping badly.
+2. **Use the portraits on phone heroes** — 55 portrait frames are now
+   available; the hero still crops a landscape one.
+3. **Rewrite the copy** with you (B1).
+4. **Homepage features** — still the same five places. Worth deciding
+   which of the thirteen belong there.
 
 ---
 
 ## Done
 
+- **Photo library reorganised** — one folder per journey, readable
+  filenames, 14 duplicates dropped, all 59 new photographs filed. Public
+  URLs went from `/photos/highlights/dji-20250704200720-0003-d.jpg` to
+  `/photos/menorca/cavalleria-02.jpg`. Reversible via `reorganise-map.json`.
+- **Six new places published** — Canterbury, Devon, Dover, Leshan, Suzhou,
+  Toledo. Every place now shows all its photographs: Menorca 4 to 21,
+  Chongqing 6 to 14, Mount Siguniang 12 to 23.
+- **Working pages taken off the public site** — `/preview/` and
+  `/identify/` are gone; review pages come as files from now on.
 - **Rebuilt off Tilda** as static HTML, two dependency-free Python scripts
   (`photos.py`, `build.py`). No Node, nothing to rot.
 - **Cloudflare Workers hosting**, deploying automatically from GitHub on
