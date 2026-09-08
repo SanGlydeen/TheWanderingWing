@@ -1,11 +1,9 @@
 ---
 title: Menorca
 region: Balearic Islands, Spain
+feature: 2
 date: 2025-07
-feature: 5
 hero: menorca/menorca-05
-needs_rewrite: yes
-gallery_blurb: PLACEHOLDER - needs writing. The north coast around Arenal d'en Castell, the lighthouse at Cap de Cavalleria, and Ciutadella in the west.
 photos:
   - menorca/menorca-05
   - menorca/cavalleria-01
@@ -28,7 +26,8 @@ photos:
   - menorca/menorca-17
   - menorca/menorca-18
   - menorca/menorca-19
+gallery_blurb: The north coast, the lighthouse at Cap de Cavalleria, and Ciutadella in the west. July 2025.
 ---
-Arenal d'en Castell curves like a crescent of turquoise glass along Menorca's northern shore. Its waters are calm, almost unreal, shifting from deep blue to transparent green with the turning light.
+Cap de Cavalleria is the northernmost point of the island — a lighthouse on a headland with nothing beyond it.
 
-Whitewashed villas perch on the rocky headland, their walls catching the last gold of the evening sun. From above, the bay reveals its perfect symmetry – sea, sand, and stone in quiet harmony.
+Arenal d'en Castell sits further east, a near-circular bay. Ciutadella is at the other end of the island entirely.

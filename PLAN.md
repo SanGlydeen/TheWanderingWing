@@ -23,8 +23,8 @@ Nothing moves on these until you answer.
 
 | # | What I need | Why it's blocked |
 |---|---|---|
-| B1 | **The copy, place by place** | Tell me what you actually remember about each place and I cut it down. **12 places** now carry placeholder or old text. Start with any one — no need to do them all at once. |
-| B2 | **The tagline** | "I don't fly a machine, I fly" pins the site to the drone. Keep, change, or drop — your call, and it matters before camera work lands. |
+| B1 | **Read the copy and correct it** | I have written all thirteen places short and factual, using only things you actually told me or that are plainly visible in the frames. Nothing is invented — which also means several places say very little. Add a real memory to any of them and I will work it in. |
+| B2 | **Test the immersive hover** | Desktop only. Reminder set for 9 Sep. |
 
 ---
 
@@ -40,6 +40,18 @@ Nothing moves on these until you answer.
 
 ## Done
 
+- **Structure audited.** A place earns its own page once it has six or more
+  photographs, or a film. Seven qualify; the other six gather on one
+  *Elsewhere* page as titled sections and graduate automatically as they
+  grow. Homepage features the five strongest.
+- **Copy rewritten** across all thirteen places and the three section
+  intros — short and factual, nothing invented.
+- **Portrait photographs used properly.** The phone hero is now an
+  art-directed portrait frame rather than a cropped landscape, and the
+  galleries lay out in columns so portrait and landscape can sit together
+  at their own proportions.
+- **Alt text** now describes each frame from its filename — "Changping
+  Valley, Mount Siguniang" rather than "Aerial photograph".
 - **Immersive hover** — hovering a homepage photograph opens it to the
   whole viewport, with the writing as a card over it; it closes the moment
   the pointer leaves the patch of page the photograph came from. Desktop

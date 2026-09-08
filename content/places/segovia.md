@@ -1,12 +1,9 @@
 ---
-title: The Alcázar of Segovia
-short_title: Segovia
+title: Segovia
 region: Castile, Spain
+feature: 5
 date: 2024-05
-feature: 3
 hero: segovia/segovia-03
-needs_rewrite: yes
-gallery_blurb: PLACEHOLDER – needs writing. Six frames of the Alcázar and the ridge it stands on, including a wide panorama of the confluence below.
 photos:
   - segovia/segovia-03
   - segovia/segovia-01
@@ -17,7 +14,8 @@ photos:
   - segovia/segovia-07
   - segovia/segovia-08
   - segovia/segovia-09
+gallery_blurb: The Alcázar on its spur above the confluence, May 2024.
 ---
-The Alcázar of Segovia rises like a fairytale crown above the confluence of rivers, its towers cutting sharp against the Castilian sky.
+The castle sits where two rivers meet, which is why it ended up shaped like the prow of a ship.
 
-Stone walls carry whispers of kings and knights, a fortress turned palace, turned legend. From above, it looks less like a building and more like a story carved into the earth.
+One of these is a wide panorama of the ridge it stands on.

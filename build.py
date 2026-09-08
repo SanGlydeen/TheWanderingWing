@@ -182,6 +182,15 @@ FEATURED = sorted([p for p in PLACES if p.get("feature")],
 GALLERIES = [p for p in PLACES if p["photos"]]
 GALLERIES.sort(key=lambda p: str(p.get("date", "")), reverse=True)
 
+# A place earns its own page once there is enough of it to be worth the
+# trip — or if there is a film, which carries a page on its own. The rest
+# gather on one "Elsewhere" page as titled sections, and graduate out of
+# it automatically as they grow.
+OWN_PAGE_MIN = 6
+JOURNEYS = [p for p in GALLERIES
+            if len(p["photos"]) >= OWN_PAGE_MIN or p.get("film")]
+ELSEWHERE = [p for p in GALLERIES if p not in JOURNEYS]
+
 # Photos on the homepage highlight strip, in the order they appear.
 HIGHLIGHTS = [
     "canterbury/cathedral-02",
@@ -349,6 +358,29 @@ def page(title, body, active, description, hero_header=False, css_extra="",
 # sections
 # --------------------------------------------------------------------
 
+
+def hero_picture():
+    wide = MANIFEST.get(SITE["hero"])
+    tall = MANIFEST.get(SITE.get("hero_portrait", ""))
+    if not wide:
+        return ""
+    if not tall:
+        return img(SITE["hero"], "Aerial view", sizes="100vw", eager=True)
+    tall_set = ", ".join(f"/photos/{tall['group']}/{tall['name']}-{w}.jpg {w}w"
+                         for w in tall["sizes"])
+    wide_set = ", ".join(f"/photos/{wide['group']}/{wide['name']}-{w}.jpg {w}w"
+                         for w in wide["sizes"])
+    return (
+        f'<picture>'
+        f'<source media="(max-width: 700px)" srcset="{tall_set}" sizes="100vw">'
+        f'<source srcset="{wide_set}" sizes="100vw">'
+        f'<img src="/photos/{wide["group"]}/{wide["name"]}-{max(wide["sizes"])}.jpg"'
+        f' alt="Mount Siguniang, Sichuan" width="{wide["width"]}"'
+        f' height="{wide["height"]}" fetchpriority="high" decoding="async">'
+        f'</picture>'
+    )
+
+
 def about_section():
     return f"""
 <section class="about" id="about">
@@ -394,6 +426,18 @@ def feature_block(place, index):
 """
 
 
+
+def describe(key, place_title):
+    """A human alt text from the manifest key and its place."""
+    name = MANIFEST[key]["name"] if key in MANIFEST else key.split("/")[-1]
+    stem = re.sub(r"-\d+$", "", name)
+    place_slug = re.sub(r"[^a-z]+", "-", place_title.lower()).strip("-")
+    if stem and stem != place_slug:
+        area = stem.replace("-", " ").title()
+        return f"{area}, {place_title}" if place_title else area
+    return place_title or "Aerial photograph"
+
+
 def photo_grid(keys, place_title=""):
     """Lightbox-enabled grid. Wide frames span two columns."""
     cells = []
@@ -402,11 +446,9 @@ def photo_grid(keys, place_title=""):
         if not p:
             cells.append(f"<!-- missing photo: {key} -->")
             continue
-        wide = " grid__cell--wide" if p["aspect"] >= 2.2 else ""
-        tall = " grid__cell--tall" if p["orientation"] == "portrait" else ""
-        alt = f"{place_title}" if place_title else "Aerial photograph"
+        alt = describe(key, place_title)
         cells.append(f"""
-    <button class="grid__cell{wide}{tall}" type="button"
+    <button class="grid__cell" type="button"
             data-full="{full_src(key)}"
             data-alt="{html.escape(alt)}">
       {img(key, alt, sizes='(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw', max_width=1400)}
@@ -491,7 +533,7 @@ def build_home():
     body = f"""
 <section class="hero">
   <div class="hero__media">
-    {img(SITE['hero'], 'Aerial view', sizes='100vw', eager=True)}
+    {hero_picture()}
   </div>
   <div class="hero__inner">
     {mark("hero__logo")}
@@ -539,9 +581,27 @@ def build_home():
                 hero_header=True, path="/")
 
 
+def elsewhere_teaser():
+    if not ELSEWHERE:
+        return ""
+    names = [p["title"] for p in ELSEWHERE]
+    listed = ", ".join(names[:-1]) + " and " + names[-1] if len(names) > 1 else names[0]
+    total = sum(len(p["photos"]) for p in ELSEWHERE)
+    return f"""
+<section class="band band--quiet">
+  <div class="wrap">
+    <h2 class="band__title">Elsewhere</h2>
+    <p class="band__text measure">Shorter visits — {html.escape(listed)}.
+      {total} photographs between them.</p>
+    <p class="band__cta"><a class="button" href="/gallery/elsewhere/">See them</a></p>
+  </div>
+</section>
+"""
+
+
 def build_gallery_index():
     cards = []
-    for p in GALLERIES:
+    for p in JOURNEYS:
         blurb = p.get("gallery_blurb") or lead_sentence(p["body"])
         meta_bits = [b for b in (p.get("region"),
                                  pretty_date(p.get("date"))) if b]
@@ -571,13 +631,7 @@ def build_gallery_index():
   <div class="wrap cards__grid">{"".join(cards)}</div>
 </section>
 
-<section class="band band--quiet">
-  <div class="wrap">
-    <h2 class="band__title">Coming soon</h2>
-    <p class="band__text measure">More from Spain, Italy, and elsewhere.
-      Stay tuned.</p>
-  </div>
-</section>
+{elsewhere_teaser()}
 
 {about_section()}
 """
@@ -639,6 +693,44 @@ def build_404():
     return page("Not found", body, "", "This page could not be found.")
 
 
+def build_elsewhere():
+    blocks = []
+    for place in ELSEWHERE:
+        meta = " · ".join(b for b in (place.get("region"),
+                                      pretty_date(place.get("date"))) if b)
+        blocks.append(f"""
+<section class="elsewhere__place">
+  <div class="wrap">
+    <p class="eyebrow">{html.escape(meta)}</p>
+    <h2>{html.escape(place['title'])}</h2>
+    <div class="measure">{paragraphs(place['body'])}</div>
+    {photo_grid(place['photos'], place['title'])}
+  </div>
+</section>""")
+
+    body = f"""
+<section class="page-head">
+  <div class="wrap">
+    <h1>Elsewhere</h1>
+    <p class="measure">Places I passed through rather than stayed in. Each
+    of these will get a page of its own once there is more of it.</p>
+  </div>
+</section>
+
+<div class="elsewhere">{"".join(blocks)}</div>
+
+<section class="band band--quiet">
+  <div class="wrap">
+    <p class="band__cta"><a class="link-arrow" href="/gallery/">
+      Back to the gallery</a></p>
+  </div>
+</section>
+"""
+    return page("Elsewhere", body, "Gallery",
+                "Shorter visits: " + ", ".join(p["title"] for p in ELSEWHERE) + ".",
+                path="/gallery/elsewhere/")
+
+
 def build_films():
     blocks = "".join(f'<div class="films__item">{film_block(f)}</div>'
                      for f in FILMS)
@@ -682,8 +774,10 @@ def main():
     write("gallery/index.html", build_gallery_index())
     write("films/index.html", build_films())
     write("404.html", build_404())
-    for p in GALLERIES:
+    for p in JOURNEYS:
         write(f"gallery/{p['slug']}/index.html", build_place(p))
+    if ELSEWHERE:
+        write("gallery/elsewhere/index.html", build_elsewhere())
 
     # static assets
     (OUT / "css").mkdir(parents=True, exist_ok=True)
@@ -705,7 +799,9 @@ def main():
 
     # sitemap + robots
     urls = ["/", "/gallery/", "/films/"] + [f"/gallery/{p['slug']}/"
-                                            for p in GALLERIES]
+                                            for p in JOURNEYS]
+    if ELSEWHERE:
+        urls.append("/gallery/elsewhere/")
     today = date.today().isoformat()
     sitemap = "\n".join(
         f"  <url><loc>https://{SITE['domain']}{u}</loc>"
@@ -722,7 +818,7 @@ def main():
           "Disallow: /_review/\n\n"
           f"Sitemap: https://{SITE['domain']}/sitemap.xml\n")
 
-    pages = 3 + len(GALLERIES)
+    pages = 3 + len(JOURNEYS) + (1 if ELSEWHERE else 0)
     photos = sum(len(p["photos"]) for p in GALLERIES) + len(HIGHLIGHTS)
     print(f"built {pages} pages, {len(FILMS)} films, {photos} photo slots")
 

@@ -547,43 +547,56 @@ p:last-child { margin-bottom: 0; }
 
 /* ------------------------------------------------------------------ grid */
 
+/* Columns rather than a row grid. With portrait and landscape frames mixed
+   together, fixed-aspect cells either crop everything to one shape or leave
+   rows ragged where a tall frame sets the height. Columns let each
+   photograph keep its own proportions and simply flow. */
+
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: clamp(0.6rem, 1.4vw, 1.1rem);
+  column-count: 3;
+  column-gap: clamp(0.6rem, 1.4vw, 1.1rem);
 }
 
+@media (max-width: 1000px) { .grid { column-count: 2; } }
+@media (max-width: 560px)  { .grid { column-count: 1; } }
+
 .grid__cell {
+  display: block;
+  width: 100%;
   padding: 0;
   border: 0;
-  margin: 0;
-  background: var(--cream-deep);
+  margin: 0 0 clamp(0.6rem, 1.4vw, 1.1rem);
+  background: none;
   cursor: zoom-in;
   overflow: hidden;
   position: relative;
   border-radius: 2px;
   font: inherit;
   color: inherit;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
 }
 
 .grid__cell img {
   width: 100%;
-  height: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  transition: transform 0.8s var(--ease), opacity 0.3s var(--ease);
+  height: auto;
+  display: block;
+  background: var(--cream-deep);
+  transition: transform 0.8s var(--ease), filter 0.5s var(--ease);
 }
 
-.grid__cell:hover img { transform: scale(1.05); }
+.grid__cell:hover img { transform: scale(1.03); }
 
-.grid__cell--wide { grid-column: span 2; }
-.grid__cell--wide img { aspect-ratio: 3 / 1; }
-.grid__cell--tall img { aspect-ratio: 3 / 4; }
-
-@media (max-width: 700px) {
-  .grid__cell--wide { grid-column: span 1; }
-  .grid__cell--wide img { aspect-ratio: 3 / 2; }
+.grid__cell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 22, 34, 0.16);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+  pointer-events: none;
 }
+.grid__cell:hover::after { opacity: 1; }
 
 /* ----------------------------------------------------------------- cards */
 
@@ -1002,3 +1015,14 @@ p:last-child { margin-bottom: 0; }
   color: #3a4f63;
 }
 .band--dark .carousel__count { color: rgba(249, 243, 231, 0.7); }
+
+/* ------------------------------------------------------------- elsewhere */
+
+.elsewhere__place {
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0;
+  border-bottom: 1px solid var(--rule);
+}
+.elsewhere__place:last-child { border-bottom: 0; }
+.elsewhere__place h2 { margin-bottom: 0.4em; }
+.elsewhere__place .measure { margin-bottom: clamp(1.6rem, 4vw, 2.4rem); }
+.elsewhere__place p { color: #33475a; }

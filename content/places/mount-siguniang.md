@@ -1,12 +1,10 @@
 ---
 title: Mount Siguniang
 region: Sichuan, China
-date: 2025-08
 feature: 1
+date: 2025-08
 hero: mount-siguniang/changping-valley-05
 film: MFC0-Iv8t-w
-needs_rewrite: yes
-gallery_blurb: A spread of stills from the mountains of Sichuan Province – among their slopes lie stretching lakes, humble towns, and pastures shared by yaks and the occasional cowboy.
 photos:
   - mount-siguniang/changping-valley-05
   - mount-siguniang/changping-valley-01
@@ -31,7 +29,8 @@ photos:
   - mount-siguniang/rilong-town-01
   - mount-siguniang/rilong-town-02
   - mount-siguniang/rilong-town-03
+gallery_blurb: Four peaks in western Sichuan, reached from Chengdu in August 2025.
 ---
-Mount Siguniang lies tucked deep between the mountains of Sichuan Province, a place of stillness and tradition.
+Three valleys run up from the town of Rilong: Haizi, Shuangqiao and Changping. I flew over the first and the last of them.
 
-I wandered through the meadows of Changping Valley, where yaks grazed among the pastures, their bells echoing across the highland air. The scent of barley and fresh milk lingered on the breeze, a reminder that even in remote valleys the world offers its own quiet abundance.
+In Changping Valley the meadows are grazed by yaks, and you hear their bells before you see them.
