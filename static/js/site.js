@@ -70,6 +70,96 @@
   });
 
 
+
+  /* --- immersive hover ------------------------------------------------
+     Hovering a homepage photograph opens it to the whole screen, and it
+     closes again the moment the pointer leaves the patch of page the
+     photograph came from. Pointer-driven, so it is desktop only; touch
+     devices and reduced-motion users keep the plain side-by-side layout.  */
+
+  var fine = window.matchMedia("(hover: hover) and (pointer: fine)");
+  var wide = window.matchMedia("(min-width: 901px)");
+
+  if (!reduced && fine.matches) {
+    var openFeature = null;
+    var homeRect = null;
+
+    function contract() {
+      if (!openFeature) return;
+      var feature = openFeature;
+      var media = feature.querySelector(".feature__media");
+      openFeature = null;
+
+      media.style.top = homeRect.top + "px";
+      media.style.left = homeRect.left + "px";
+      media.style.width = homeRect.width + "px";
+      media.style.height = homeRect.height + "px";
+      feature.classList.remove("is-immersive");
+
+      var done = function () {
+        media.classList.remove("is-immersive");
+        media.style.cssText = "";
+        media.removeEventListener("transitionend", done);
+      };
+      media.addEventListener("transitionend", done);
+      // If the transition never fires (tab hidden, say) still clean up.
+      setTimeout(done, 700);
+    }
+
+    function expand(feature) {
+      if (openFeature === feature || !wide.matches) return;
+      contract();
+
+      var media = feature.querySelector(".feature__media");
+      var r = media.getBoundingClientRect();
+      homeRect = { top: r.top, left: r.left, width: r.width, height: r.height };
+      openFeature = feature;
+
+      media.classList.add("is-immersive");
+      media.style.top = r.top + "px";
+      media.style.left = r.left + "px";
+      media.style.width = r.width + "px";
+      media.style.height = r.height + "px";
+      // Reading the box flushes the starting geometry, so the change
+      // below animates from it rather than jumping. No rAF: callbacks are
+      // paused while a tab is hidden, which left it half-applied.
+      media.getBoundingClientRect();
+
+      media.style.top = "0px";
+      media.style.left = "0px";
+      media.style.width = "100vw";
+      media.style.height = "100vh";
+      feature.classList.add("is-immersive");
+    }
+
+    document.querySelectorAll(".feature").forEach(function (feature) {
+      var media = feature.querySelector(".feature__media");
+      if (!media) return;
+      media.addEventListener("mouseenter", function () { expand(feature); });
+    });
+
+    // Once expanded the photograph covers the pointer's own position, so
+    // leaving cannot be detected from the element. Watch the pointer
+    // against the box the photograph came from instead — which is what
+    // "move away from where the photo used to be" means.
+    document.addEventListener("mousemove", function (e) {
+      if (!openFeature || !homeRect) return;
+      var pad = 4;
+      if (e.clientX < homeRect.left - pad ||
+          e.clientX > homeRect.left + homeRect.width + pad ||
+          e.clientY < homeRect.top - pad ||
+          e.clientY > homeRect.top + homeRect.height + pad) {
+        contract();
+      }
+    }, { passive: true });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") contract();
+    });
+    window.addEventListener("scroll", contract, { passive: true });
+    window.addEventListener("resize", contract, { passive: true });
+  }
+
   /* --- carousel -----------------------------------------------------
      Enhancement only: without this the track stays a scroll-snapping
      horizontal scroller, so every photograph is still reachable.      */

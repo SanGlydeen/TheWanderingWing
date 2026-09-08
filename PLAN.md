@@ -30,11 +30,7 @@ Nothing moves on these until you answer.
 
 ## Next, in order
 
-1. **Immersive hover** — currently the photo widens to the full screen
-   width but keeps the row height, so it reads as a zoom rather than an
-   immersion. Should fill the whole viewport, and contract as soon as the
-   cursor leaves where the photo used to be.
-2. **Use the portraits on phone heroes** — 55 portrait frames are now
+1. **Use the portraits on phone heroes** — 55 portrait frames are now
    available; the hero still crops a landscape one.
 3. **Rewrite the copy** with you (B1).
 4. **Homepage features** — still the same five places. Worth deciding
@@ -44,6 +40,10 @@ Nothing moves on these until you answer.
 
 ## Done
 
+- **Immersive hover** — hovering a homepage photograph opens it to the
+  whole viewport, with the writing as a card over it; it closes the moment
+  the pointer leaves the patch of page the photograph came from. Desktop
+  and fine-pointer only; touch and reduced-motion keep the plain layout.
 - **Photo library reorganised** — one folder per journey, readable
   filenames, 14 duplicates dropped, all 59 new photographs filed. Public
   URLs went from `/photos/highlights/dji-20250704200720-0003-d.jpg` to

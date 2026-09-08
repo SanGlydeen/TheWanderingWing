@@ -424,37 +424,45 @@ p:last-child { margin-bottom: 0; }
   }
   .feature--right .feature__body { right: auto; left: var(--gutter); }
 
-  /* the takeover */
-  .feature:hover .feature__media,
-  .feature:focus-within .feature__media {
-    left: 0;
-    width: 100%;
+  /* Hovering the photograph takes over the whole screen.
+     The geometry is driven from JavaScript: it records where the frame
+     currently sits, pins it there as a fixed element, then animates that
+     box out to the full viewport. Widening it in place only ever read as
+     a zoom — this actually fills the screen. */
+  .feature__media.is-immersive {
+    position: fixed;
+    z-index: 90;
     border-radius: 0;
+    box-shadow: none;
+    transition: top 0.55s var(--ease), left 0.55s var(--ease),
+                width 0.55s var(--ease), height 0.55s var(--ease);
   }
-  .feature--right:hover .feature__media,
-  .feature--right:focus-within .feature__media { right: 0; }
+  .feature__media.is-immersive::after { opacity: 1; }
 
-  .feature:hover .feature__media::after,
-  .feature:focus-within .feature__media::after { opacity: 1; }
-
-  .feature:hover .feature__body,
-  .feature:focus-within .feature__body {
-    right: calc(var(--gutter) + var(--w) * 0.04);
-    background: rgba(16, 30, 45, 0.86);
+  .feature.is-immersive .feature__body {
+    position: fixed;
+    z-index: 91;
+    top: auto;
+    bottom: clamp(2.5rem, 8vh, 6rem);
+    translate: none;
+    width: min(440px, 38vw);
+    right: clamp(1.5rem, 7vw, 6rem);
+    left: auto;
+    background: rgba(16, 30, 45, 0.88);
     backdrop-filter: blur(6px);
     color: var(--cream);
+    padding: clamp(1.6rem, 2.5vw, 2.2rem);
   }
-  .feature--right:hover .feature__body,
-  .feature--right:focus-within .feature__body {
-    left: calc(var(--gutter) + var(--w) * 0.04);
+  .feature--right.is-immersive .feature__body {
     right: auto;
+    left: clamp(1.5rem, 7vw, 6rem);
   }
+  .feature.is-immersive .feature__body p { color: rgba(249, 243, 231, 0.88); }
+  .feature.is-immersive .feature__body .eyebrow { color: rgba(249, 243, 231, 0.8); }
 
-  .feature:hover .feature__body p,
-  .feature:focus-within .feature__body p { color: rgba(249, 243, 231, 0.88); }
-
-  .feature:hover .feature__body .eyebrow,
-  .feature:focus-within .feature__body .eyebrow { color: rgba(249, 243, 231, 0.78); }
+  /* A hint that the frame will open, without moving anything. */
+  .feature__media { cursor: zoom-in; }
+  .feature__media:hover::after { opacity: 0.35; }
 }
 
 @media (prefers-reduced-motion: reduce) {
