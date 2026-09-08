@@ -2,12 +2,21 @@
 title: Kunming
 region: Yunnan, China
 date: 2024-06
-hero: thumbnails/kunming
+hero: film-stills/kunming
 film: o2toUXx8LyA
 needs_rewrite: no
 gallery_blurb: PLACEHOLDER - needs writing. A ridge above the city, on the way out towards Dianchi.
 photos:
-  - highlights/img-8115
+  - kunming/kunming-01
+  - kunming/kunming-02
+  - kunming/kunming-03
+  - kunming/kunming-04
+  - kunming/kunming-05
+  - kunming/kunming-06
+  - kunming/kunming-07
+  - kunming/kunming-08
+  - kunming/stone-forest-01
+  - kunming/stone-forest-02
 ---
 Kunming rests between mountain ridges and the wide sweep of Dianchi Lake, a city where sky and water seem to meet.
 

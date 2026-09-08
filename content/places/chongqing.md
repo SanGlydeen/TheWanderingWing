@@ -3,17 +3,25 @@ title: Chongqing
 region: China
 date: 2024-12
 feature: 4
-hero: highlights/img-7818
+hero: chongqing/chongqing-14
 film: NQruZ9hG-sM
 needs_rewrite: yes
 gallery_blurb: PLACEHOLDER - needs writing. The Jialing and Yangtze meeting below a vertical city of bridges and towers.
 photos:
-  - highlights/img-7612
-  - highlights/img-7742
-  - highlights/img-7743
-  - highlights/img-7745
-  - highlights/img-7746
-  - highlights/img-7818
+  - chongqing/chongqing-14
+  - chongqing/chongqing-01
+  - chongqing/chongqing-02
+  - chongqing/chongqing-03
+  - chongqing/chongqing-04
+  - chongqing/chongqing-05
+  - chongqing/chongqing-06
+  - chongqing/chongqing-07
+  - chongqing/chongqing-08
+  - chongqing/chongqing-09
+  - chongqing/chongqing-10
+  - chongqing/chongqing-11
+  - chongqing/chongqing-12
+  - chongqing/chongqing-13
 ---
 Chongqing stands at the meeting of the Jialing and Yangtze rivers, a city of endless hills and bridges strung like threads of light across the Yangtze.
 

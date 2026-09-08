@@ -3,7 +3,7 @@ title: Mount Siguniang
 date: 2025-08
 youtube: MFC0-Iv8t-w
 place: mount-siguniang
-poster: thumbnails/mount-siguniang
+poster: film-stills/mount-siguniang
 needs_rewrite: yes
 ---
 Mount Siguniang lies tucked deep between the mountains of Sichuan Province, a place of stillness and tradition.

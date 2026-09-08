@@ -3,9 +3,13 @@ title: Lago Maggiore
 region: Piedmont, Italy
 date: 2024-07
 feature: 2
-hero: highlights/dji-20240730152115-0255-d
+hero: lago-maggiore/lago-maggiore-01
 film: RGKUteQ2Lno
 needs_rewrite: yes
+photos:
+  - lago-maggiore/lago-maggiore-01
+  - lago-maggiore/lago-maggiore-02
+  - lago-maggiore/lago-maggiore-03
 ---
 Lago Maggiore stretches like a silver mirror between the shoulders of the Alps, its waters shimmering with a quiet grandeur.
 

@@ -4,8 +4,8 @@ author: Samuel Salesas
 tagline: I don't fly a machine, I fly.
 domain: thewanderingwing.com
 logo: brand/thewanderingwing-logo-trans
-portrait: brand/img-4771
-hero: highlights/img-4916
+portrait: brand/portrait-samuel
+hero: mount-siguniang/changping-valley-01
 instagram: https://www.instagram.com/thewanderingwingfilms
 youtube: https://www.youtube.com/@TheWanderingWing
 ---

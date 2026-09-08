@@ -3,7 +3,7 @@ title: Lago Maggiore
 date: 2024-07
 youtube: RGKUteQ2Lno
 place: lago-maggiore
-poster: thumbnails/lago-maggiore
+poster: film-stills/lago-maggiore
 needs_rewrite: yes
 ---
 Lago Maggiore stretches like a silver mirror between the shoulders of the Alps, its waters shimmering with a quiet grandeur.

@@ -3,7 +3,7 @@ title: Chongqing
 date: 2024-12
 youtube: NQruZ9hG-sM
 place: chongqing
-poster: thumbnails/chongqing
+poster: film-stills/chongqing
 needs_rewrite: no
 ---
 Chongqing stands at the meeting of the Jialing and Yangtze rivers, a city of endless hills and bridges strung like threads of light across the Yangtze.

@@ -119,7 +119,7 @@ MISSING = []
 
 
 def img(key, alt, sizes="100vw", cls="", eager=False, max_width=2400):
-    """Render a responsive <img> for a manifest key like `london/img-5943`."""
+    """Render a responsive <img> for a manifest key like `london/london-06`."""
     p = MANIFEST.get(key)
     if not p:
         MISSING.append(key)
@@ -184,12 +184,12 @@ GALLERIES.sort(key=lambda p: str(p.get("date", "")), reverse=True)
 
 # Photos on the homepage highlight strip, in the order they appear.
 HIGHLIGHTS = [
-    "highlights/dji-20241130155638-0141-d",
-    "highlights/dji-20250704203954-0062-d",
-    "london/dji-20250930151411-0039-d-2",
-    "highlights/img-3133",
-    "highlights/img-4555",
-    "highlights/img-4873",
+    "canterbury/cathedral-02",
+    "menorca/menorca-08",
+    "london/london-03",
+    "menorca/cavalleria-02",
+    "mount-siguniang/changping-valley-03",
+    "mount-siguniang/changping-valley-04",
 ]
 
 

@@ -30,6 +30,11 @@ MANIFEST = ROOT / "photo-manifest.json"
 WIDTHS = [400, 800, 1400, 2000, 2400]
 QUALITY = 78
 
+# No derivative is taller than this. The ladder is by width, which suits
+# landscape frames, but a portrait at 2000 wide is 3556 tall — far more
+# than any screen shows and twice the bytes. Tiers past this are skipped.
+MAX_HEIGHT = 2600
+
 
 def sips(*args):
     return subprocess.run(
@@ -84,6 +89,8 @@ def build_one(src, group, name):
         if w > sw and sizes:
             break
         target_w = min(w, sw)
+        if sizes and round(target_w * sh / sw) > MAX_HEIGHT:
+            break
         dest = dest_dir / f"{name}-{w}.jpg"
 
         if dest.exists() and dest.stat().st_mtime >= src_mtime:
@@ -164,8 +171,10 @@ def build(groups):
 
 
 if __name__ == "__main__":
-    # Discover groups from the library layout. Each becomes a folder
-    # under public/photos/.
+    # Groups come straight from the library layout: one folder per journey
+    # under Photos/, plus the brand assets and the film stills.
+    import assignments
+
     def listing(subdir, exts=(".jpg", ".jpeg", ".png")):
         d = LIBRARY / subdir
         if not d.is_dir():
@@ -176,12 +185,13 @@ if __name__ == "__main__":
             if p.suffix.lower() in exts and not p.name.startswith(".")
         )
 
-    groups = {
-        "highlights": listing("Highlights"),
-        "mount-siguniang": listing("Posts/1. Mount Siguniang 1&2"),
-        "london": listing("Posts/2. London"),
-        "segovia": listing("Posts/3. Segovia"),
-        "brand": listing("Branding"),
-        "thumbnails": listing("Thumbnails"),
-    }
-    build(groups)
+    groups = {}
+    for slug, folder in assignments.FOLDERS.items():
+        rel = folder if folder.startswith("Photos") else f"Photos/{folder}"
+        files = listing(rel)
+        if files:
+            groups[slug] = files
+    groups["brand"] = listing("Brand") + listing("Brand/Logo")
+    groups["film-stills"] = listing("Film stills")
+
+    build({k: v for k, v in groups.items() if v})

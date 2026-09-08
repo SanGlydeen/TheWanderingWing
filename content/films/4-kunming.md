@@ -3,7 +3,7 @@ title: Kunming
 date: 2024-06
 youtube: o2toUXx8LyA
 place: kunming
-poster: thumbnails/kunming
+poster: film-stills/kunming
 needs_rewrite: no
 ---
 Kunming rests between mountain ridges and the wide sweep of Dianchi Lake, a city where sky and water seem to meet.

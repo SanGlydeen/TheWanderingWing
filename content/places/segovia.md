@@ -4,16 +4,19 @@ short_title: Segovia
 region: Castile, Spain
 date: 2024-05
 feature: 3
-hero: segovia/dji-20240517182022-0057-d
+hero: segovia/segovia-03
 needs_rewrite: yes
 gallery_blurb: PLACEHOLDER – needs writing. Six frames of the Alcázar and the ridge it stands on, including a wide panorama of the confluence below.
 photos:
-  - segovia/dji-20240517182022-0057-d
-  - segovia/dji-20240517182031-0058-d
-  - segovia/dji-20240517181821-0054-d
-  - segovia/dji-20240517182107-0059-d
-  - segovia/dji-20240517182729-0074-d
-  - segovia/dji-20240517182222-0063-d
+  - segovia/segovia-03
+  - segovia/segovia-01
+  - segovia/segovia-02
+  - segovia/segovia-04
+  - segovia/segovia-05
+  - segovia/segovia-06
+  - segovia/segovia-07
+  - segovia/segovia-08
+  - segovia/segovia-09
 ---
 The Alcázar of Segovia rises like a fairytale crown above the confluence of rivers, its towers cutting sharp against the Castilian sky.
 
