@@ -720,7 +720,7 @@ p:last-child { margin-bottom: 0; }
 .about {
   background: var(--cream);
   color: var(--navy);
-  padding: var(--band) 0;
+  padding: var(--band) 0 clamp(2.5rem, 6vw, 4rem);
   text-align: center;
 }
 
@@ -746,7 +746,7 @@ p:last-child { margin-bottom: 0; }
 .about__inner h2 { margin-bottom: 0.6em; }
 .about__inner p { color: #43576a; }
 
-.about .socials { justify-content: center; }
+.about .socials { justify-content: center; margin-top: clamp(1.6rem, 4vw, 2.2rem); }
 
 .about .socials a {
   border-color: rgba(21, 39, 57, 0.25);
@@ -788,7 +788,7 @@ p:last-child { margin-bottom: 0; }
 .site-footer {
   background: var(--cream);
   color: var(--navy);
-  padding: clamp(2.5rem, 6vw, 4rem) 0 2.5rem;
+  padding: clamp(2rem, 4vw, 3rem) 0 2.25rem;
   text-align: center;
   border-top: 1px solid rgba(21, 39, 57, 0.1);
 }
@@ -822,7 +822,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 .site-footer__legal {
-  margin: 2.2rem 0 0;
+  margin: 1.4rem 0 0;
   font-family: var(--ui);
   font-size: 0.75rem;
   letter-spacing: 0.03em;
@@ -896,7 +896,7 @@ p:last-child { margin-bottom: 0; }
   .about__portrait { max-width: 300px; margin-inline: auto; }
   .about { text-align: center; }
   .about__text p { margin-inline: auto; }
-  .about .socials { justify-content: center; }
+  .about .socials { justify-content: center; margin-top: clamp(1.6rem, 4vw, 2.2rem); }
 }
 
 @media (max-width: 620px) {
