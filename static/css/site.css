@@ -71,9 +71,10 @@ p:last-child { margin-bottom: 0; }
 .eyebrow {
   font-family: var(--display);
   font-size: 0.95rem;
-  letter-spacing: 0.22em;
+  font-weight: 500;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: #3a4f63;
   margin: 0 0 0.9rem;
 }
 
@@ -121,7 +122,7 @@ p:last-child { margin-bottom: 0; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
-.brand img { width: 34px; height: 34px; }
+.brand img { width: 40px; height: auto; }
 
 .site-nav {
   display: flex;
@@ -205,16 +206,24 @@ p:last-child { margin-bottom: 0; }
   padding: clamp(3rem, 9vw, 5rem) clamp(1.5rem, 7vw, 5rem);
   margin: 6rem 0 3rem;
   animation: rise 1.1s var(--ease) both;
-  background: radial-gradient(ellipse at center,
-    rgba(11, 22, 34, 0.52) 0%,
-    rgba(11, 22, 34, 0.44) 38%,
-    rgba(11, 22, 34, 0.24) 62%,
-    rgba(11, 22, 34, 0.08) 80%,
-    transparent 94%);
+  position: relative;
+  isolation: isolate;
+}
+
+.hero__inner::before {
+  content: "";
+  position: absolute;
+  inset: -35% -12%;
+  z-index: -1;
+  background: radial-gradient(ellipse closest-side at center,
+    rgba(11, 22, 34, 0.55) 0%,
+    rgba(11, 22, 34, 0.44) 42%,
+    rgba(11, 22, 34, 0.20) 70%,
+    transparent 100%);
 }
 
 .hero__logo {
-  width: clamp(76px, 11vw, 118px);
+  width: clamp(90px, 12vw, 140px);
   height: auto;
   margin: 0 auto 1.75rem;
   filter: brightness(0) invert(1)
@@ -307,58 +316,133 @@ p:last-child { margin-bottom: 0; }
 
 .features { padding-bottom: var(--band); }
 
-.feature {
-  display: grid;
-  align-items: center;
-  gap: clamp(1.5rem, 4vw, 3.5rem);
-  padding: clamp(2rem, 5vw, 3.5rem) 0;
-  width: min(100% - 2.5rem, var(--wrap));
-  margin-inline: auto;
-  grid-template-columns: 1.35fr 1fr;
-}
-
-.feature--right { direction: rtl; }
-.feature--right > * { direction: ltr; }
-
-.feature__media {
-  overflow: hidden;
-  border-radius: 2px;
-  box-shadow: 0 18px 44px -28px rgba(21, 39, 57, 0.55);
-}
-
-.feature__media img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  transition: transform 0.9s var(--ease);
-}
-.feature:hover .feature__media img { transform: scale(1.035); }
-
 .feature__body h2 { margin-bottom: 0.55em; }
+.feature__body p { color: #33475a; }
 
-.feature__body p {
-  color: #33475a;
+.feature__media { overflow: hidden; }
+.feature__media img { width: 100%; object-fit: cover; }
+
+/* --- phones and small tablets: photo full width, words on paper below.
+   The card laps up over the image so the two read as one piece. --- */
+
+@media (max-width: 900px) {
+  .feature { display: block; padding-bottom: clamp(2rem, 6vw, 3.5rem); }
+
+  .feature__media img {
+    height: clamp(320px, 56vh, 520px);
+  }
+
+  .feature__body {
+    position: relative;
+    z-index: 2;
+    width: min(100% - 2rem, 620px);
+    margin: clamp(-4.5rem, -9vw, -2.5rem) auto 0;
+    background: var(--paper);
+    padding: clamp(1.4rem, 5vw, 2rem);
+    box-shadow: 0 -10px 40px -30px rgba(21, 39, 57, 0.5);
+  }
 }
 
-.link-arrow {
-  display: inline-block;
-  margin-top: 0.9rem;
-  font-family: var(--display);
-  font-size: 1.05rem;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 3px;
-  transition: border-color 0.25s var(--ease);
+/* --- desktop: photo and words side by side, until you hover.
+   Then the photograph opens to the full width of the screen and the words
+   settle onto it as a card. Both states are laid out with the same
+   absolutely-positioned elements, so the change is a real transition
+   rather than a jump, and the row keeps its height either way. --- */
+
+@media (min-width: 901px) {
+  .feature {
+    --w: min(100vw - 2.5rem, var(--wrap));
+    --gutter: calc((100vw - var(--w)) / 2);
+
+    position: relative;
+    height: clamp(440px, 70vh, 760px);
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+    isolation: isolate;
+  }
+
+  .feature__media {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--gutter);
+    width: calc(var(--w) * 0.6);
+    z-index: 1;
+    border-radius: 2px;
+    box-shadow: 0 18px 44px -28px rgba(21, 39, 57, 0.55);
+    transition: left 0.8s var(--ease), width 0.8s var(--ease),
+                border-radius 0.8s var(--ease);
+  }
+  .feature--right .feature__media { left: auto; right: var(--gutter); }
+
+  .feature__media img { height: 100%; }
+
+  .feature__media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    background: linear-gradient(90deg,
+      rgba(11, 22, 34, 0.1), rgba(11, 22, 34, 0.62));
+    transition: opacity 0.8s var(--ease);
+  }
+  .feature--right .feature__media::after {
+    background: linear-gradient(270deg,
+      rgba(11, 22, 34, 0.1), rgba(11, 22, 34, 0.62));
+  }
+
+  .feature__body {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    right: var(--gutter);
+    width: calc(var(--w) * 0.355);
+    z-index: 2;
+    padding: clamp(1.2rem, 2vw, 1.9rem);
+    border-radius: 2px;
+    transition: background 0.6s var(--ease), color 0.6s var(--ease),
+                right 0.8s var(--ease), left 0.8s var(--ease),
+                backdrop-filter 0.6s var(--ease);
+  }
+  .feature--right .feature__body { right: auto; left: var(--gutter); }
+
+  /* the takeover */
+  .feature:hover .feature__media,
+  .feature:focus-within .feature__media {
+    left: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+  .feature--right:hover .feature__media,
+  .feature--right:focus-within .feature__media { right: 0; }
+
+  .feature:hover .feature__media::after,
+  .feature:focus-within .feature__media::after { opacity: 1; }
+
+  .feature:hover .feature__body,
+  .feature:focus-within .feature__body {
+    right: calc(var(--gutter) + var(--w) * 0.04);
+    background: rgba(16, 30, 45, 0.86);
+    backdrop-filter: blur(6px);
+    color: var(--cream);
+  }
+  .feature--right:hover .feature__body,
+  .feature--right:focus-within .feature__body {
+    left: calc(var(--gutter) + var(--w) * 0.04);
+    right: auto;
+  }
+
+  .feature:hover .feature__body p,
+  .feature:focus-within .feature__body p { color: rgba(249, 243, 231, 0.88); }
+
+  .feature:hover .feature__body .eyebrow,
+  .feature:focus-within .feature__body .eyebrow { color: rgba(249, 243, 231, 0.78); }
 }
-.link-arrow::after {
-  content: " →";
-  transition: transform 0.25s var(--ease);
-  display: inline-block;
+
+@media (prefers-reduced-motion: reduce) {
+  .feature__media, .feature__body, .feature__media::after {
+    transition: none !important;
+  }
 }
-.link-arrow:hover { border-color: var(--navy); }
-.link-arrow:hover::after { transform: translateX(4px); }
 
 /* ----------------------------------------------------------------- bands */
 
@@ -606,7 +690,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 .site-footer__mark {
-  width: 58px;
+  width: 66px;
   margin: 0 auto 1.2rem;
   filter: brightness(0) invert(1);
   opacity: 0.9;
@@ -682,11 +766,7 @@ p:last-child { margin-bottom: 0; }
 /* ------------------------------------------------------------ responsive */
 
 @media (max-width: 900px) {
-  .feature,
-  .about__inner {
-    grid-template-columns: 1fr;
-  }
-  .feature--right { direction: ltr; }
+  .about__inner { grid-template-columns: 1fr; }
   .about__portrait { max-width: 300px; margin-inline: auto; }
   .about { text-align: center; }
   .about__text p { margin-inline: auto; }

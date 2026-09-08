@@ -243,7 +243,7 @@ def socials(cls="socials"):
 def page(title, body, active, description, hero_header=False, css_extra="",
          path=None):
     """Wrap page content in the shared shell."""
-    logo = "/img/logo.png"
+    mark = "/img/mark.png"
     header_cls = " site-header--hero" if hero_header else ""
     year = date.today().year
 
@@ -281,7 +281,7 @@ def page(title, body, active, description, hero_header=False, css_extra="",
 <header class="site-header{header_cls}">
   <div class="wrap site-header__inner">
     <a class="brand" href="/">
-      <img src="{logo}" alt="" width="500" height="500">
+      <img src="{mark}" alt="" width="500" height="250">
       <span>{html.escape(SITE['name'])}</span>
     </a>
     <nav class="site-nav" aria-label="Main">{nav(active)}</nav>
@@ -294,7 +294,7 @@ def page(title, body, active, description, hero_header=False, css_extra="",
 
 <footer class="site-footer">
   <div class="wrap">
-    <img class="site-footer__mark" src="{logo}" alt="" width="500" height="500">
+    <img class="site-footer__mark" src="{mark}" alt="" width="500" height="250">
     <p class="site-footer__tagline">{html.escape(SITE['tagline'])}</p>
     {socials()}
     <p class="site-footer__legal">© {year} {html.escape(SITE['name'])} |
@@ -422,8 +422,8 @@ def build_home():
     {img(SITE['hero'], 'Aerial view', sizes='100vw', eager=True)}
   </div>
   <div class="hero__inner">
-    <img class="hero__logo" src="/img/logo.png"
-         alt="" width="500" height="500">
+    <img class="hero__logo" src="/img/mark.png"
+         alt="" width="500" height="250">
     <p class="hero__welcome">Welcome to</p>
     <h1 class="hero__title">{html.escape(SITE['name'])}</h1>
     <p class="hero__tagline">{html.escape(SITE['tagline'])}</p>

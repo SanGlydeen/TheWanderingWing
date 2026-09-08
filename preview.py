@@ -43,8 +43,9 @@ def blocks(variant):
 
         if variant == "a":
             # Photo fills the viewport; the words sit on it.
+            side = "left" if i % 2 else "right"
             out.append(f"""
-<section class="v-imm">
+<section class="v-imm v-imm--{side}">
   {build.img(place['hero'], place['title'], sizes='100vw',
              eager=(i == 0), max_width=2400)}
   <div class="v-imm__card">

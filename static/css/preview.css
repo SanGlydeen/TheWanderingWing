@@ -84,6 +84,9 @@
   object-fit: cover;
 }
 
+.v-imm--right .v-imm__card { margin-left: auto; margin-right: var(--inset); }
+.v-imm--left  .v-imm__card { margin-right: auto; margin-left: var(--inset); }
+
 /* Darkened only where the card sits, so the photograph keeps its light. */
 .v-imm::after {
   content: "";
@@ -93,10 +96,17 @@
   background: linear-gradient(200deg,
     transparent 35%, rgba(11, 22, 34, 0.55) 88%);
 }
+.v-imm--left::after {
+  background: linear-gradient(160deg,
+    transparent 35%, rgba(11, 22, 34, 0.55) 88%);
+}
 
 .v-imm__card {
-  margin: 0 clamp(1rem, 5vw, 4.5rem) clamp(2.5rem, 8vh, 6rem) auto;
-  max-width: 440px;
+  /* Sat in from the edge rather than jammed against it, and alternating
+     side to side so a run of them does not feel one-sided. */
+  --inset: clamp(1rem, 12vw, 9rem);
+  margin-bottom: clamp(2.5rem, 8vh, 6rem);
+  max-width: 460px;
   padding: clamp(1.6rem, 4vw, 2.4rem);
   background: rgba(16, 30, 45, 0.9);
   backdrop-filter: blur(6px);
@@ -104,10 +114,11 @@
 }
 .v-imm__card h2 { margin-bottom: 0.45em; }
 .v-imm__card p { color: rgba(249, 243, 231, 0.86); font-size: 1rem; }
-.v-imm__card .eyebrow { color: rgba(249, 243, 231, 0.6); }
+.v-imm__card .eyebrow { color: rgba(249, 243, 231, 0.8); }
 
 @media (max-width: 700px) {
-  .v-imm__card { margin-inline: 1rem; max-width: none; }
+  .v-imm--left .v-imm__card,
+  .v-imm--right .v-imm__card { margin-inline: 1rem; max-width: none; }
 }
 
 /* ---------------------------------------------------- C: hybrid */
