@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """Where every photograph in the library belongs.
 
-Places confirmed by Samuel on 8 September 2026, against the file listing
-he was shown at /identify/. Two sets are still open and are marked OPEN
-below; the migration refuses to run while any remain.
+Two things live here. FOLDERS maps a place slug to its folder under
+Photos/ and is read by photos.py on every build — add a place there when
+you add a folder. ASSIGN records which original went where, kept as the
+provenance of the September 2026 reorganisation; tools/reorganise.py is
+the only thing that reads it, and that has already run.
 
 Keys are filename stems. Values are (place slug, optional area within it).
-The area only exists where it is real information worth keeping — which
-valley at Siguniang, which part of Menorca — not as decoration.
+The area exists only where it is real information — which valley at
+Siguniang, which part of Menorca — not as decoration.
 """
 
 # folder name in the library -> place slug

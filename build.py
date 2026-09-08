@@ -149,11 +149,6 @@ def full_src(key, width=2400):
     return f"/photos/{p['group']}/{p['name']}-{w}.jpg"
 
 
-def aspect(key):
-    p = MANIFEST.get(key)
-    return p["aspect"] if p else 1.5
-
-
 # --------------------------------------------------------------------
 # load content
 # --------------------------------------------------------------------
@@ -201,6 +196,10 @@ HIGHLIGHTS = [
     "mount-siguniang/changping-valley-04",
 ]
 
+
+# --------------------------------------------------------------------
+# assets
+# --------------------------------------------------------------------
 
 # The bird, inlined as a <symbol> so each placement inherits its colour
 # from CSS. An <img src="*.svg"> renders in its own document and would

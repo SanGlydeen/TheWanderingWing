@@ -33,6 +33,8 @@ LIB = Path(
 )
 MAP_FILE = Path(__file__).parent / "reorganise-map.json"
 
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).parent.parent))
 import assignments
 
 def digest(path):
@@ -151,6 +153,16 @@ def apply(moves, dropped):
 
 
 if __name__ == "__main__":
+    # This has already run. Running it again against an already-reorganised
+    # library would file things a second time and misplace anything added
+    # since. The map's existence is the record that it happened.
+    if MAP_FILE.exists() and "--force" not in sys.argv:
+        raise SystemExit(
+            f"Already applied — see {MAP_FILE.name}.\n"
+            "The library is in its target shape; re-running would misfile it.\n"
+            "Pass --force only if you genuinely mean to."
+        )
+
     moves, dropped, unplaced = plan()
     if "--apply" in sys.argv:
         if unplaced:

@@ -70,6 +70,17 @@ key. Films are ordered by filename; the first one is the homepage feature.
 Videos are hosted on YouTube and embedded behind a click-to-play poster, so no
 YouTube script or cookie loads until a visitor actually presses play.
 
+## What is where
+
+    build.py            writes the site into public/
+    photos.py           resizes library originals into public/photos/
+    assignments.py      which place each photograph belongs to; FOLDERS is
+                        read on every build, so add a place there
+    content/            the words: site.md, places/, films/
+    static/             css, js and the SVG mark, copied at build time
+    public/             the built site — this is what Cloudflare serves
+    tools/              one-off scripts, already run, kept for the record
+
 ## Local preview
 
     python3 -m http.server 8788 --directory public
