@@ -478,6 +478,7 @@ p:last-child { margin-bottom: 0; }
 .band__cta { text-align: center; margin-top: clamp(2rem, 5vw, 3rem); }
 
 .band__film { max-width: 980px; margin-inline: auto; }
+.band__film .film { width: 100%; }
 
 .button {
   display: inline-block;
@@ -587,9 +588,19 @@ p:last-child { margin-bottom: 0; }
   border-top: 1px solid var(--rule);
 }
 
-.film { max-width: 980px; margin-inline: auto; }
+/* Films run the full width of the page rather than a narrower centred
+   column, so the heading, the writing and the player all share one left
+   edge instead of stepping in and out. */
+.film { width: 100%; }
 .film h2 { margin-bottom: 0.5em; }
 .film__text { max-width: 62ch; margin-bottom: clamp(1.6rem, 3vw, 2.4rem); }
+
+@media (min-width: 1000px) {
+  /* Above this width the writing sits beside the date rather than
+     stranding the right-hand half of the screen. */
+  .film { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .films__item .film__player { max-height: min(72vh, 700px); }
+}
 .band--dark .film__text { color: rgba(249, 243, 231, 0.85); }
 
 .film__player {
