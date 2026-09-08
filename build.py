@@ -607,6 +607,12 @@ def main():
         if src.is_dir():
             shutil.copytree(src, OUT / sub, dirs_exist_ok=True)
 
+    # Cloudflare reads _headers from the root of the served directory.
+    for loose in ("_headers", "_redirects"):
+        src = STATIC / loose
+        if src.is_file():
+            shutil.copy(src, OUT / loose)
+
     favicon = STATIC / "img" / "favicon.png"
     if favicon.exists():
         shutil.copy(favicon, OUT / "favicon.png")

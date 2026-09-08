@@ -1,0 +1,33 @@
+# Response headers for the deployed site.
+#
+# Cloudflare's default for static assets is
+#   Cache-Control: public, max-age=0, must-revalidate
+# which makes a returning visitor revalidate every single photograph on
+# every page view. On a gallery page that is dozens of round trips before
+# anything appears. The rules below cut that down.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# A given derivative filename always holds the same photograph, so this can
+# be cached hard. Thirty days rather than a year because the names are not
+# content-hashed: if an original is ever replaced in place, this is how long
+# a returning visitor could see the old frame.
+/photos/*
+  Cache-Control: public, max-age=2592000
+
+/img/*
+  Cache-Control: public, max-age=2592000
+
+/favicon.png
+  Cache-Control: public, max-age=2592000
+
+# These do change, and are not content-hashed either. An hour is long enough
+# to help repeat visits and short enough that a design fix reaches people the
+# same day.
+/css/*
+  Cache-Control: public, max-age=3600
+
+/js/*
+  Cache-Control: public, max-age=3600
