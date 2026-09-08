@@ -1,7 +1,7 @@
 # Plan and status
 
 Living document. I keep this current so you don't have to remember where
-things stand. Last updated: 8 September 2026.
+things stand. Last updated: 8 September 2026, after the repository tidy.
 
 **13 places, 116 photographs.** Canterbury, Chongqing, Devon, Dover,
 Kunming, Lago Maggiore, Leshan, London, Menorca, Mount Siguniang, Segovia,
@@ -30,16 +30,26 @@ Nothing moves on these until you answer.
 
 ## Next, in order
 
-1. **Use the portraits on phone heroes** — 55 portrait frames are now
-   available; the hero still crops a landscape one.
-3. **Rewrite the copy** with you (B1).
-4. **Homepage features** — still the same five places. Worth deciding
-   which of the thirteen belong there.
+1. **The 6,000-file album** — its own session. Sort by date, infer the
+   place from the date, then you pick the highlights.
+2. **Whatever B1 turns up** — the four thin places especially.
+3. **Turn on Cloudflare Web Analytics** — free, no cookie banner, one
+   toggle in the dashboard. I argued for Cloudflare partly because of it
+   and then never enabled it.
 
 ---
 
 ## Done
 
+- **Repository tidied.** One-off scripts moved to `tools/` and
+  `reorganise.py` now refuses to run twice — it had already been applied,
+  and a second run would have refiled everything. Dropped three published
+  logo variants nothing loaded, an unused helper, an orphaned CSS rule, an
+  empty `templates/` directory and a stale `.gitignore` entry. `README.md`
+  documents what each file is for.
+- **Favicon content-hashed.** It sat at a stable path under a thirty-day
+  cache, so changing the logo would not have reached anyone for a month —
+  the same bug already fixed for CSS and JS.
 - **Structure audited.** A place earns its own page once it has six or more
   photographs, or a film. Seven qualify; the other six gather on one
   *Elsewhere* page as titled sections and graduate automatically as they
