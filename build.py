@@ -231,6 +231,7 @@ def asset(rel):
 
 CSS_HREF = asset("css/site.css")
 JS_SRC = asset("js/site.js")
+FAVICON = asset("img/favicon.png")
 
 # --------------------------------------------------------------------
 # layout
@@ -313,8 +314,8 @@ def page(title, body, active, description, hero_header=False, css_extra="",
 <meta property="og:image" content="https://{SITE['domain']}{full_src(share_image or SITE['hero'], 1400)}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#152739">
-<link rel="icon" href="/favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="icon" href="{FAVICON}" type="image/png">
+<link rel="apple-touch-icon" href="{FAVICON}">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap">
 <link rel="stylesheet" href="{CSS_HREF}">
@@ -786,8 +787,8 @@ def main():
     (OUT / "js").mkdir(parents=True, exist_ok=True)
     shutil.copy(STATIC / "css/site.css", OUT / CSS_HREF.lstrip("/"))
     shutil.copy(STATIC / "js/site.js", OUT / JS_SRC.lstrip("/"))
-    if (STATIC / "img").is_dir():
-        shutil.copytree(STATIC / "img", OUT / "img", dirs_exist_ok=True)
+    (OUT / "img").mkdir(parents=True, exist_ok=True)
+    shutil.copy(STATIC / "img/favicon.png", OUT / FAVICON.lstrip("/"))
 
     # Cloudflare reads _headers from the root of the served directory.
     for loose in ("_headers", "_redirects"):
@@ -795,9 +796,6 @@ def main():
         if src.is_file():
             shutil.copy(src, OUT / loose)
 
-    favicon = STATIC / "img" / "favicon.png"
-    if favicon.exists():
-        shutil.copy(favicon, OUT / "favicon.png")
 
     # sitemap + robots
     urls = ["/", "/gallery/", "/films/"] + [f"/gallery/{p['slug']}/"

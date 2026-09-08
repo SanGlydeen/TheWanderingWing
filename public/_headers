@@ -17,11 +17,11 @@
 /photos/*
   Cache-Control: public, max-age=2592000
 
+# The favicon's filename carries a hash of its contents, like the CSS and
+# JS, so it is safe to cache indefinitely — and changing the logo produces
+# a new URL rather than leaving browsers on the old one for a month.
 /img/*
-  Cache-Control: public, max-age=2592000
-
-/favicon.png
-  Cache-Control: public, max-age=2592000
+  Cache-Control: public, max-age=31536000, immutable
 
 # CSS and JS filenames carry a hash of their contents, so a change produces
 # a new URL. That makes them safe to cache indefinitely, and removes the
