@@ -73,91 +73,116 @@
 
   /* --- immersive hover ------------------------------------------------
      Hovering a homepage photograph opens it to the whole screen, and it
-     closes again the moment the pointer leaves the patch of page the
-     photograph came from. Pointer-driven, so it is desktop only; touch
-     devices and reduced-motion users keep the plain side-by-side layout.  */
+     closes the moment the pointer leaves the patch of page the photograph
+     came from.
+
+     The expanded frame is a separate overlay appended to <body>, not the
+     original element repositioned. A `position: fixed` element resolves
+     against the nearest transformed ancestor rather than the viewport,
+     and .feature carries a transform from the scroll-reveal — which sized
+     the "fullscreen" frame to the feature block and pushed the card off
+     the edge of the screen. An overlay on <body> cannot be captured that
+     way, and leaves the page layout untouched.                          */
 
   var fine = window.matchMedia("(hover: hover) and (pointer: fine)");
   var wide = window.matchMedia("(min-width: 901px)");
 
   if (!reduced && fine.matches) {
-    var openFeature = null;
+    var overlay = null;
     var homeRect = null;
 
-    function contract() {
-      if (!openFeature) return;
-      var feature = openFeature;
-      var media = feature.querySelector(".feature__media");
-      openFeature = null;
+    function close() {
+      if (!overlay) return;
+      var node = overlay;
+      var r = homeRect;
+      overlay = null;
+      homeRect = null;
 
-      media.style.top = homeRect.top + "px";
-      media.style.left = homeRect.left + "px";
-      media.style.width = homeRect.width + "px";
-      media.style.height = homeRect.height + "px";
-      feature.classList.remove("is-immersive");
+      node.classList.remove("is-open");
+      var frame = node.querySelector(".immersive__frame");
+      frame.style.top = r.top + "px";
+      frame.style.left = r.left + "px";
+      frame.style.width = r.width + "px";
+      frame.style.height = r.height + "px";
 
-      var done = function () {
-        media.classList.remove("is-immersive");
-        media.style.cssText = "";
-        media.removeEventListener("transitionend", done);
-      };
-      media.addEventListener("transitionend", done);
-      // If the transition never fires (tab hidden, say) still clean up.
-      setTimeout(done, 700);
+      var remove = function () { if (node.parentNode) node.remove(); };
+      frame.addEventListener("transitionend", remove);
+      setTimeout(remove, 700);
     }
 
-    function expand(feature) {
-      if (openFeature === feature || !wide.matches) return;
-      contract();
-
+    function open(feature) {
+      if (overlay || !wide.matches) return;
       var media = feature.querySelector(".feature__media");
+      var img = media && media.querySelector("img");
+      var body = feature.querySelector(".feature__body");
+      if (!img) return;
+
       var r = media.getBoundingClientRect();
       homeRect = { top: r.top, left: r.left, width: r.width, height: r.height };
-      openFeature = feature;
 
-      media.classList.add("is-immersive");
-      media.style.top = r.top + "px";
-      media.style.left = r.left + "px";
-      media.style.width = r.width + "px";
-      media.style.height = r.height + "px";
-      // Reading the box flushes the starting geometry, so the change
-      // below animates from it rather than jumping. No rAF: callbacks are
-      // paused while a tab is hidden, which left it half-applied.
-      media.getBoundingClientRect();
+      overlay = document.createElement("div");
+      overlay.className = "immersive";
+      if (feature.classList.contains("feature--right")) {
+        overlay.classList.add("immersive--right");
+      }
 
-      media.style.top = "0px";
-      media.style.left = "0px";
-      media.style.width = "100vw";
-      media.style.height = "100vh";
-      feature.classList.add("is-immersive");
+      var frame = document.createElement("div");
+      frame.className = "immersive__frame";
+      frame.style.top = r.top + "px";
+      frame.style.left = r.left + "px";
+      frame.style.width = r.width + "px";
+      frame.style.height = r.height + "px";
+
+      var copy = img.cloneNode(true);
+      copy.removeAttribute("loading");
+      copy.sizes = "100vw";
+      frame.appendChild(copy);
+
+      var card = document.createElement("div");
+      card.className = "immersive__card";
+      card.innerHTML = body ? body.innerHTML : "";
+
+      overlay.appendChild(frame);
+      overlay.appendChild(card);
+      document.body.appendChild(overlay);
+
+      // Reading the box flushes the starting geometry so the change below
+      // animates from it. No rAF: its callbacks pause while a tab is
+      // hidden, which left the state half-applied.
+      frame.getBoundingClientRect();
+
+      frame.style.top = "0px";
+      frame.style.left = "0px";
+      frame.style.width = "100%";
+      frame.style.height = "100%";
+      overlay.classList.add("is-open");
     }
 
     document.querySelectorAll(".feature").forEach(function (feature) {
       var media = feature.querySelector(".feature__media");
       if (!media) return;
-      media.addEventListener("mouseenter", function () { expand(feature); });
+      media.addEventListener("mouseenter", function () { open(feature); });
     });
 
-    // Once expanded the photograph covers the pointer's own position, so
-    // leaving cannot be detected from the element. Watch the pointer
-    // against the box the photograph came from instead — which is what
-    // "move away from where the photo used to be" means.
+    // Once expanded the photograph sits under the pointer, so leaving
+    // cannot be read from the element. The pointer is tested against the
+    // box the frame came from instead.
     document.addEventListener("mousemove", function (e) {
-      if (!openFeature || !homeRect) return;
+      if (!homeRect) return;
       var pad = 4;
       if (e.clientX < homeRect.left - pad ||
           e.clientX > homeRect.left + homeRect.width + pad ||
           e.clientY < homeRect.top - pad ||
           e.clientY > homeRect.top + homeRect.height + pad) {
-        contract();
+        close();
       }
     }, { passive: true });
 
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") contract();
+      if (e.key === "Escape") close();
     });
-    window.addEventListener("scroll", contract, { passive: true });
-    window.addEventListener("resize", contract, { passive: true });
+    window.addEventListener("scroll", close, { passive: true });
+    window.addEventListener("resize", close, { passive: true });
   }
 
   /* --- carousel -----------------------------------------------------

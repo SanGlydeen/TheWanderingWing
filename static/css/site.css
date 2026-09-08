@@ -424,45 +424,77 @@ p:last-child { margin-bottom: 0; }
   }
   .feature--right .feature__body { right: auto; left: var(--gutter); }
 
-  /* Hovering the photograph takes over the whole screen.
-     The geometry is driven from JavaScript: it records where the frame
-     currently sits, pins it there as a fixed element, then animates that
-     box out to the full viewport. Widening it in place only ever read as
-     a zoom — this actually fills the screen. */
-  .feature__media.is-immersive {
-    position: fixed;
-    z-index: 90;
-    border-radius: 0;
-    box-shadow: none;
-    transition: top 0.55s var(--ease), left 0.55s var(--ease),
-                width 0.55s var(--ease), height 0.55s var(--ease);
-  }
-  .feature__media.is-immersive::after { opacity: 1; }
-
-  .feature.is-immersive .feature__body {
-    position: fixed;
-    z-index: 91;
-    top: auto;
-    bottom: clamp(2.5rem, 8vh, 6rem);
-    translate: none;
-    width: min(440px, 38vw);
-    right: clamp(1.5rem, 7vw, 6rem);
-    left: auto;
-    background: rgba(16, 30, 45, 0.88);
-    backdrop-filter: blur(6px);
-    color: var(--cream);
-    padding: clamp(1.6rem, 2.5vw, 2.2rem);
-  }
-  .feature--right.is-immersive .feature__body {
-    right: auto;
-    left: clamp(1.5rem, 7vw, 6rem);
-  }
-  .feature.is-immersive .feature__body p { color: rgba(249, 243, 231, 0.88); }
-  .feature.is-immersive .feature__body .eyebrow { color: rgba(249, 243, 231, 0.8); }
-
   /* A hint that the frame will open, without moving anything. */
   .feature__media { cursor: zoom-in; }
-  .feature__media:hover::after { opacity: 0.35; }
+  .feature__media:hover::after { opacity: 0.3; }
+}
+
+/* ------------------------------------------------------------ immersive */
+
+/* Built as an overlay on <body>, because a fixed element resolves against
+   the nearest transformed ancestor rather than the viewport, and .feature
+   carries a transform from the scroll-reveal. */
+
+.immersive {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  pointer-events: none;
+}
+
+.immersive__frame {
+  position: absolute;
+  overflow: hidden;
+  transition: top 0.5s var(--ease), left 0.5s var(--ease),
+              width 0.5s var(--ease), height 0.5s var(--ease);
+}
+
+.immersive__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.immersive__frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(260deg,
+    rgba(11, 22, 34, 0.1) 40%, rgba(11, 22, 34, 0.66));
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+}
+.immersive--right .immersive__frame::after {
+  background: linear-gradient(100deg,
+    rgba(11, 22, 34, 0.1) 40%, rgba(11, 22, 34, 0.66));
+}
+.immersive.is-open .immersive__frame::after { opacity: 1; }
+
+.immersive__card {
+  position: absolute;
+  bottom: clamp(2.5rem, 9vh, 6rem);
+  right: clamp(1.5rem, 7vw, 6rem);
+  width: min(440px, 40vw);
+  padding: clamp(1.6rem, 2.5vw, 2.2rem);
+  background: rgba(16, 30, 45, 0.9);
+  backdrop-filter: blur(6px);
+  color: var(--cream);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.45s var(--ease) 0.15s,
+              transform 0.45s var(--ease) 0.15s;
+}
+.immersive--right .immersive__card {
+  right: auto;
+  left: clamp(1.5rem, 7vw, 6rem);
+}
+.immersive.is-open .immersive__card { opacity: 1; transform: none; }
+
+.immersive__card h2 { margin-bottom: 0.45em; }
+.immersive__card p { color: rgba(249, 243, 231, 0.88); }
+.immersive__card .eyebrow { color: rgba(249, 243, 231, 0.8); }
+.immersive__card .link-arrow { display: none; }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
