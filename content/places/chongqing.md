@@ -6,6 +6,14 @@ feature: 4
 hero: highlights/img-7818
 film: NQruZ9hG-sM
 needs_rewrite: yes
+gallery_blurb: PLACEHOLDER - needs writing. The Jialing and Yangtze meeting below a vertical city of bridges and towers.
+photos:
+  - highlights/img-7612
+  - highlights/img-7742
+  - highlights/img-7743
+  - highlights/img-7745
+  - highlights/img-7746
+  - highlights/img-7818
 ---
 Chongqing stands at the meeting of the Jialing and Yangtze rivers, a city of endless hills and bridges strung like threads of light across the Yangtze.
 

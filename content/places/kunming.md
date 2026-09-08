@@ -5,6 +5,9 @@ date: 2024-06
 hero: thumbnails/kunming
 film: o2toUXx8LyA
 needs_rewrite: no
+gallery_blurb: PLACEHOLDER - needs writing. A ridge above the city, on the way out towards Dianchi.
+photos:
+  - highlights/img-8115
 ---
 Kunming rests between mountain ridges and the wide sweep of Dianchi Lake, a city where sky and water seem to meet.
 
