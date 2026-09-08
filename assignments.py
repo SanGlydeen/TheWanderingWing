@@ -23,6 +23,7 @@ FOLDERS = {
     "menorca": "2025-07 Menorca",
     "mount-siguniang": "2025-08 Mount Siguniang",
     "segovia": "2024-05 Segovia",
+    "suzhou": "2025-12 Suzhou",
     "toledo": "2025-12 Toledo",
     "unsorted": "Photos/Unsorted",
 }
@@ -68,7 +69,11 @@ _add("london", ["DJI_20250930150852_0012_D", "DJI_20250930151352_0037_D",
                 "DJI_20250930151411_0039_D 2", "IMG_5942", "IMG_5943",
                 "IMG_5946"])
 
-_add("canterbury", ["DJI_20241130155638_0141_D"], area="cathedral")
+_add("canterbury", ["DJI_20241130155638_0141_D",
+                    "DJI_20241130155532_0136_D"], area="cathedral")
+# Confirmed from the photographs themselves: the white cliffs with South
+# Foreland lighthouse on the clifftop.
+_add("dover", ["IMG_6978", "IMG_6979"], area="white-cliffs")
 
 # --- the 59 dropped in the library root on 8 Sep 2026 -----------------
 
@@ -111,33 +116,18 @@ _add("mount-siguniang", ["IMG_4554", "IMG_4861", "IMG_4866", "IMG_4869",
 # 2025-09 — London
 _add("london", ["IMG_5945"])
 
-# 2025-12 — the first two at Toledo
+# 2025-12 — Toledo, then Suzhou
 _add("toledo", ["DJI_20251217143625_0067_D", "DJI_20251217144758_0089_D"])
+_add("suzhou", ["IMG_8244", "IMG_8246", "IMG_8252", "IMG_8253"])
 
 # 2026-05 — Devon
 _add("devon", ["DJI_20260523133144_0324_D", "DJI_20260523133202_0327_D",
                "DJI_20260523133540_0345_D"])
 
 
-# --- still open -------------------------------------------------------
-# Nothing is guessed here. The migration will not run until both are
-# resolved and moved into the assignments above.
+# --- nothing left open ------------------------------------------------
 
-OPEN = {
-    "2025-12, photos 3-6": {
-        "stems": ["IMG_8244", "IMG_8246", "IMG_8252", "IMG_8253"],
-        "question": 'Samuel said "Sujo" — need the spelling and the country. '
-                    "Toledo either side of it suggests Spain, but Suzhou is "
-                    "also possible given the China travel. Not guessing.",
-    },
-    "2024-11, which is Canterbury and which is Dover": {
-        "stems": ["DJI_20241130155532_0136_D", "IMG_6978", "IMG_6979"],
-        "question": "The group is Canterbury and Dover together. "
-                    "DJI_20241130155532 was taken one minute before the "
-                    "confirmed Canterbury Cathedral frame, so it is very "
-                    "likely Canterbury; the two IMG_697x are unknown.",
-    },
-}
+OPEN = {}
 
 # Files that are neither photographs of places nor open questions.
 BRAND_LOGOS = ["Copy of TheWanderingWing Logo Bigger",

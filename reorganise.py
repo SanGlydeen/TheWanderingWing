@@ -29,71 +29,7 @@ LIB = Path(
 )
 MAP_FILE = Path(__file__).parent / "reorganise-map.json"
 
-# Where each original belongs, keyed by filename stem. Places confirmed by
-# Samuel; the Siguniang valleys come from the old "O/" subfolders.
-PLACES = {
-    "2024-05 Segovia": {
-        "slug": "segovia",
-        "stems": ["DJI_20240517181821_0054_D", "DJI_20240517182022_0057_D",
-                  "DJI_20240517182031_0058_D", "DJI_20240517182107_0059_D",
-                  "DJI_20240517182222_0063_D", "DJI_20240517182729_0074_D"],
-    },
-    "2024-06 Kunming": {"slug": "kunming", "stems": ["IMG_8115"]},
-    "2024-07 Lago Maggiore": {
-        "slug": "lago-maggiore", "stems": ["DJI_20240730152115_0255_D"]},
-    "2024-12 Chongqing": {
-        "slug": "chongqing",
-        "stems": ["IMG_7612", "IMG_7742", "IMG_7743", "IMG_7745",
-                  "IMG_7746", "IMG_7818"],
-    },
-    "2025-07 Menorca": {
-        "slug": "menorca",
-        "stems": ["DJI_20250704200720_0003_D", "DJI_20250704203954_0062_D",
-                  "IMG_3123", "IMG_3246"],
-    },
-    "2025-08 Mount Siguniang": {
-        "slug": "mount-siguniang",
-        "stems": ["DJI_20250815035531_0084_D", "DJI_20250815035615_0087_D",
-                  "DJI_20250815082103_0001_D 2", "DJI_20250815082129_0004_D",
-                  "DJI_20250815082436_0015_D 2", "DJI_20250816112109_0091_D",
-                  "IMG_4555", "IMG_4873", "IMG_4874", "IMG_4916",
-                  "DJI_20250815012334_0039_D copy",
-                  "DJI_20250815012553_0049_D copy",
-                  "DJI_20250815035323_0075_D", "DJI_20250816112051_0087_D",
-                  "DJI_20250816062954_0039_D", "RESIZED 1", "RESIZED 2",
-                  "Banner"],
-    },
-    "2025-09 London": {
-        "slug": "london",
-        "stems": ["DJI_20250930150852_0012_D", "DJI_20250930151352_0037_D",
-                  "DJI_20250930151411_0039_D 2", "IMG_5942", "IMG_5943",
-                  "IMG_5946"],
-    },
-}
-
-# Within Mount Siguniang the old subfolders recorded which valley each
-# frame came from; worth keeping, since it is real information.
-SIGUNIANG_AREA = {
-    "haizi-valley": ["DJI_20250815035531_0084_D", "DJI_20250815035615_0087_D",
-                     "DJI_20250815082103_0001_D 2", "DJI_20250815082129_0004_D",
-                     "DJI_20250815082436_0015_D 2"],
-    "changping-valley": ["IMG_4555", "IMG_4873", "IMG_4874", "IMG_4916",
-                         "Banner", "DJI_20250816112109_0091_D"],
-    "rilong-town": ["DJI_20250815012334_0039_D copy",
-                    "DJI_20250815012553_0049_D copy",
-                    "DJI_20250815035323_0075_D"],
-}
-
-# Not yet identified. Parked rather than guessed at.
-UNSORTED = ["IMG_3133", "DJI_20241130155638_0141_D"]
-
-BRAND_LOGOS = ["Copy of TheWanderingWing Logo Bigger",
-               "Copy of TheWanderingWing Logo", "High Res WanderingWing Logo",
-               "TheWanderingWing Logo FINAL", "TheWanderingWing Logo TRANS",
-               "TheWanderingWing Logo Website", "TheWanderingWing Logo"]
-
-FILM_STILLS = ["Chongqing", "Kunming", "Lago Maggiore", "Mount Siguniang"]
-
+import assignments
 
 def digest(path):
     h = hashlib.md5()
@@ -116,49 +52,41 @@ def plan():
         if p.suffix.lower() in (".jpg", ".jpeg", ".png"):
             by_hash[digest(p)].append(p)
 
-    # Of each set of identical files keep the shallowest, shortest path.
+    # Of each set of byte-identical files keep the shallowest, shortest path.
     canonical, dropped = {}, []
     for h, paths in by_hash.items():
         paths.sort(key=lambda p: (len(p.parts), len(p.name)))
         canonical[h] = paths[0]
         dropped.extend(paths[1:])
 
-    stem_to_place = {}
-    for folder, meta in PLACES.items():
-        for stem in meta["stems"]:
-            stem_to_place[stem] = (folder, meta["slug"])
-    area_of = {s: a for a, stems in SIGUNIANG_AREA.items() for s in stems}
-
     grouped, moves, unplaced = defaultdict(list), [], []
 
     for p in sorted(canonical.values(), key=lambda x: x.name):
         stem = p.stem
-        if stem in stem_to_place:
-            grouped[stem_to_place[stem]].append(p)
-        elif stem in UNSORTED:
-            grouped[("Photos/Unsorted", "unsorted")].append(p)
-        elif stem in BRAND_LOGOS:
+        if stem in assignments.ASSIGN:
+            grouped[assignments.ASSIGN[stem][0]].append(p)
+        elif stem in assignments.BRAND_LOGOS:
             moves.append((p, LIB / "Brand" / "Logo" / p.name))
-        elif stem == "IMG_4771":
+        elif stem == assignments.PORTRAIT:
             moves.append((p, LIB / "Brand" / "portrait-samuel.jpeg"))
-        elif stem in FILM_STILLS:
-            moves.append((p, LIB / "Film stills" / f"{stem.lower().replace(' ', '-')}.png"))
+        elif stem in assignments.FILM_STILLS:
+            slug = stem.lower().replace(" ", "-")
+            moves.append((p, LIB / "Film stills" / f"{slug}.png"))
         else:
             unplaced.append(p)
 
-    for (folder, slug), paths in grouped.items():
-        dest_dir = LIB / ("Photos/" + folder if not folder.startswith("Photos") else folder)
-        # Order by capture time where the camera encoded it, else by name.
+    for slug, paths in grouped.items():
+        folder = assignments.FOLDERS[slug]
+        dest_dir = LIB / folder if folder.startswith("Photos") else LIB / "Photos" / folder
         paths.sort(key=lambda x: x.name)
         counters = defaultdict(int)
         for p in paths:
-            area = area_of.get(p.stem)
+            area = assignments.ASSIGN[p.stem][1]
             key = area or slug
             counters[key] += 1
-            name = f"{key}-{counters[key]:02d}{p.suffix.lower()}"
-            moves.append((p, dest_dir / name))
+            ext = ".jpg" if p.suffix.lower() in (".jpg", ".jpeg") else p.suffix.lower()
+            moves.append((p, dest_dir / f"{key}-{counters[key]:02d}{ext}"))
 
-    # Anything not an image: the film, and whatever else turns up.
     for p in sources():
         if p.suffix.lower() in (".jpg", ".jpeg", ".png"):
             continue

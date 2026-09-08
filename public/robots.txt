@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /preview/
+Disallow: /identify/
+Disallow: /_review/
 
 Sitemap: https://thewanderingwing.com/sitemap.xml

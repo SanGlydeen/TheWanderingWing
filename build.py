@@ -223,8 +223,6 @@ def asset(rel):
 
 CSS_HREF = asset("css/site.css")
 JS_SRC = asset("js/site.js")
-PREVIEW_CSS = (asset("css/preview.css")
-               if (STATIC / "css/preview.css").is_file() else "")
 
 # --------------------------------------------------------------------
 # layout
@@ -686,8 +684,6 @@ def main():
     (OUT / "js").mkdir(parents=True, exist_ok=True)
     shutil.copy(STATIC / "css/site.css", OUT / CSS_HREF.lstrip("/"))
     shutil.copy(STATIC / "js/site.js", OUT / JS_SRC.lstrip("/"))
-    if PREVIEW_CSS:
-        shutil.copy(STATIC / "css/preview.css", OUT / PREVIEW_CSS.lstrip("/"))
     if (STATIC / "img").is_dir():
         shutil.copytree(STATIC / "img", OUT / "img", dirs_exist_ok=True)
 
@@ -713,7 +709,11 @@ def main():
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
           f"{sitemap}\n</urlset>\n")
     write("robots.txt",
-          f"User-agent: *\nAllow: /\n\n"
+          "User-agent: *\n"
+          "Allow: /\n"
+          "Disallow: /preview/\n"
+          "Disallow: /identify/\n"
+          "Disallow: /_review/\n\n"
           f"Sitemap: https://{SITE['domain']}/sitemap.xml\n")
 
     pages = 3 + len(GALLERIES)
