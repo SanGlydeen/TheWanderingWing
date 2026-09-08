@@ -240,11 +240,20 @@ def socials(cls="socials"):
     )
 
 
-def page(title, body, active, description, hero_header=False, css_extra=""):
+def page(title, body, active, description, hero_header=False, css_extra="",
+         path=None):
     """Wrap page content in the shared shell."""
     logo = "/img/logo.png"
     header_cls = " site-header--hero" if hero_header else ""
     year = date.today().year
+
+    # The site answers on both the apex and www, so every page names the apex
+    # as canonical. Omitted on pages that should never be indexed.
+    canonical = ""
+    if path:
+        url = f"https://{SITE['domain']}{path}"
+        canonical = (f'<link rel="canonical" href="{url}">\n'
+                     f'<meta property="og:url" content="{url}">')
 
     return f"""<!doctype html>
 <html lang="en">
@@ -256,6 +265,7 @@ def page(title, body, active, description, hero_header=False, css_extra=""):
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{html.escape(description)}">
 <meta property="og:type" content="website">
+{canonical}
 <meta property="og:image" content="https://{SITE['domain']}{full_src(SITE['hero'], 1400)}">
 <meta name="theme-color" content="#152739">
 <link rel="icon" href="/favicon.png" type="image/png">
@@ -455,7 +465,7 @@ def build_home():
 {about_section()}
 """
     return page("Home", body, "Home", lead_sentence(SECTIONS["intro"]),
-                hero_header=True)
+                hero_header=True, path="/")
 
 
 def build_gallery_index():
@@ -500,7 +510,8 @@ def build_gallery_index():
 
 {about_section()}
 """
-    return page("Gallery", body, "Gallery", SECTIONS["gallery_intro"])
+    return page("Gallery", body, "Gallery", SECTIONS["gallery_intro"],
+                path="/gallery/")
 
 
 def build_place(place):
@@ -535,7 +546,8 @@ def build_place(place):
 </section>
 """
     desc = place.get("gallery_blurb") or lead_sentence(place["body"])
-    return page(place["title"], body, "Gallery", desc)
+    return page(place["title"], body, "Gallery", desc,
+                path=f"/gallery/{place['slug']}/")
 
 
 def build_404():
@@ -573,7 +585,8 @@ def build_films():
 
 {about_section()}
 """
-    return page("Films", body, "Films", SECTIONS["films_intro"])
+    return page("Films", body, "Films", SECTIONS["films_intro"],
+                path="/films/")
 
 
 # --------------------------------------------------------------------
