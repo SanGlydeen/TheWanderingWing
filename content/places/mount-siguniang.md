@@ -24,8 +24,6 @@ photos:
   - mount-siguniang/mount-siguniang-06
   - mount-siguniang/mount-siguniang-07
   - mount-siguniang/mount-siguniang-08
-  - mount-siguniang/mount-siguniang-09
-  - mount-siguniang/mount-siguniang-10
   - mount-siguniang/rilong-town-01
   - mount-siguniang/rilong-town-02
   - mount-siguniang/rilong-town-03

@@ -1466,36 +1466,6 @@
     "srcset": "/photos/mount-siguniang/mount-siguniang-08-400.jpg 400w, /photos/mount-siguniang/mount-siguniang-08-800.jpg 800w, /photos/mount-siguniang/mount-siguniang-08-1400.jpg 1400w",
     "width": 2268
   },
-  "mount-siguniang/mount-siguniang-09": {
-    "aspect": 1.4218,
-    "group": "mount-siguniang",
-    "height": 844,
-    "name": "mount-siguniang-09",
-    "orientation": "landscape",
-    "sizes": [
-      400,
-      800
-    ],
-    "source": "Photos/2025-08 Mount Siguniang/mount-siguniang-09.jpg",
-    "src": "/photos/mount-siguniang/mount-siguniang-09-800.jpg",
-    "srcset": "/photos/mount-siguniang/mount-siguniang-09-400.jpg 400w, /photos/mount-siguniang/mount-siguniang-09-800.jpg 800w",
-    "width": 1200
-  },
-  "mount-siguniang/mount-siguniang-10": {
-    "aspect": 1.4218,
-    "group": "mount-siguniang",
-    "height": 844,
-    "name": "mount-siguniang-10",
-    "orientation": "landscape",
-    "sizes": [
-      400,
-      800
-    ],
-    "source": "Photos/2025-08 Mount Siguniang/mount-siguniang-10.jpg",
-    "src": "/photos/mount-siguniang/mount-siguniang-10-800.jpg",
-    "srcset": "/photos/mount-siguniang/mount-siguniang-10-400.jpg 400w, /photos/mount-siguniang/mount-siguniang-10-800.jpg 800w",
-    "width": 1200
-  },
   "mount-siguniang/rilong-town-01": {
     "aspect": 1.7778,
     "group": "mount-siguniang",

@@ -3,7 +3,7 @@
 Living document. I keep this current so you don't have to remember where
 things stand. Last updated: 8 September 2026, after the repository tidy.
 
-**13 places, 116 photographs.** Canterbury, Chongqing, Devon, Dover,
+**13 places, 106 photographs.** Canterbury, Chongqing, Devon, Dover,
 Kunming, Lago Maggiore, Leshan, London, Menorca, Mount Siguniang, Segovia,
 Suzhou, Toledo.
 
@@ -41,6 +41,17 @@ Nothing moves on these until you answer.
 
 ## Done
 
+- **Content integrity checked.** Kunming was fronted by its YouTube
+  thumbnail rather than a photograph; the build now refuses a hero from
+  outside its own place. Kunming was also labelled June when none of its
+  photographs are from June — the June visit is the film — so it reads
+  July now, with the June story kept in the writing. Two frames in Mount
+  Siguniang turned out to be 1200px web copies of shots already there at
+  full size; they are out of the set. Also verified: every hero is in its
+  own photo list, feature numbers run 1-5 with no gaps, no photograph
+  appears under two places, and every other place's date matches when its
+  photographs were taken.
+- **CLAUDE.md written** so a new session understands the project cold.
 - **Repository tidied.** One-off scripts moved to `tools/` and
   `reorganise.py` now refuses to run twice — it had already been applied,
   and a second run would have refiled everything. Dropped three published

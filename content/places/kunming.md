@@ -2,7 +2,7 @@
 title: Kunming
 region: Yunnan, China
 feature: 4
-date: 2024-06
+date: 2024-07
 hero: kunming/kunming-08
 film: o2toUXx8LyA
 photos:
@@ -16,8 +16,8 @@ photos:
   - kunming/kunming-08
   - kunming/stone-forest-01
   - kunming/stone-forest-02
-gallery_blurb: June 2024, my first time back in China since 2019.
+gallery_blurb: July 2024, on a second visit — the first had been that June, my first time back in China since 2019.
 ---
-It surprised me. More relaxed than the cities I had known, and I liked it enough to return a few months later — which is where most of these come from.
+I first came in June 2024, my first time back in China since 2019, and it surprised me — more relaxed than the cities I had known. I liked it enough to return, which is when most of these were taken.
 
 The city sits between ridges with Dianchi Lake spread out below it. The last two here are from the stone forest, outside the city.
