@@ -8,6 +8,6 @@ photos:
   - lago-maggiore/lago-maggiore-01
   - lago-maggiore/lago-maggiore-02
   - lago-maggiore/lago-maggiore-03
-gallery_blurb: The lake between the Alps, in July and August 2024.
+gallery_blurb: July 2024, straight after Kunming.
 ---
-The Borromean Islands sit close together near Stresa, each one more or less filled by a single building.
+The Borromean Islands sit close together off Stresa, each one more or less taken up by a single building.

@@ -6,6 +6,6 @@ hero: leshan/leshan-01
 photos:
   - leshan/leshan-01
   - leshan/leshan-02
-gallery_blurb: South of Chengdu, on the way to Chongqing. December 2024.
+gallery_blurb: December 2024, south of Chengdu on the way to Chongqing.
 ---
-South of Chengdu, on the way to Chongqing. December 2024.
+December 2024, south of Chengdu on the way to Chongqing.

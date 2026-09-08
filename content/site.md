@@ -13,7 +13,7 @@ youtube: https://www.youtube.com/@TheWanderingWing
 ## intro
 The world looks different when you take to the sky.
 
-This is where I keep the films and photographs — thirteen places so far, from Sichuan to Menorca, most of them shot from a few hundred feet up.
+This is where the films and photographs end up — thirteen places so far, from Sichuan to Menorca.
 
 Maybe you'll agree that height changes how a place reads. Maybe you'll just enjoy the view. Either way, I'm glad you're here.
 
@@ -21,7 +21,7 @@ Maybe you'll agree that height changes how a place reads. Maybe you'll just enjo
 Hi, I'm Samuel – a Politics and Economics student who's endlessly curious about people, places, and ideas. I learn languages, chase new cultures, and film the world as I see it – always searching for fresh perspectives from the ground and the sky.
 
 ## gallery_intro
-Every place I've flown, most recent first. The longer visits have pages of their own; the shorter ones are gathered together at the end.
+Everywhere I've flown, newest first. The places I stayed a while get a page each; the shorter stops are collected at the end.
 
 ## films_intro
-Four films so far. Each one is a single trip cut down to a few minutes.
+Four so far. Each one is a trip cut down to a few minutes.

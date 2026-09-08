@@ -6,6 +6,6 @@ hero: dover/white-cliffs-01
 photos:
   - dover/white-cliffs-01
   - dover/white-cliffs-02
-gallery_blurb: The white cliffs on the same grey afternoon as Canterbury, with South Foreland lighthouse on the clifftop.
+gallery_blurb: The same grey afternoon as Canterbury.
 ---
-The white cliffs on the same grey afternoon as Canterbury, with South Foreland lighthouse on the clifftop.
+The cliffs, with South Foreland lighthouse sitting on top of them.

@@ -6,6 +6,6 @@ place: mount-siguniang
 poster: film-stills/mount-siguniang
 needs_rewrite: yes
 ---
-Mount Siguniang lies tucked deep between the mountains of Sichuan Province, a place of stillness and tradition.
+Mount Siguniang sits in western Sichuan.
 
-I had the pleasure of visiting in August of 2025 as part of my travels in and around Chengdu, and managed to capture a few vignettes of what I saw.
+I went in August 2025, as part of a longer trip around Chengdu.

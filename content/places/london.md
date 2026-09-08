@@ -12,6 +12,6 @@ photos:
   - london/london-06
   - london/london-07
   - london/london-08
-gallery_blurb: The river and the towers along it, September 2025.
+gallery_blurb: September 2025.
 ---
-The river and the towers along it, September 2025.
+September 2025.

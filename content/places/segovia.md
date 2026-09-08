@@ -14,8 +14,8 @@ photos:
   - segovia/segovia-07
   - segovia/segovia-08
   - segovia/segovia-09
-gallery_blurb: The Alcázar on its spur above the confluence, May 2024.
+gallery_blurb: May 2024.
 ---
-The castle sits where two rivers meet, which is why it ended up shaped like the prow of a ship.
+The Alcázar stands on a spur where two rivers meet, which is why it ends up shaped like the prow of a ship.
 
-One of these is a wide panorama of the ridge it stands on.
+One of these is a panorama of the whole ridge it sits on.

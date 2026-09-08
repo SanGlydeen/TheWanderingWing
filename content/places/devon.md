@@ -7,6 +7,6 @@ photos:
   - devon/devon-01
   - devon/devon-02
   - devon/devon-03
-gallery_blurb: The south-west coast in May 2026.
+gallery_blurb: May 2026.
 ---
-The south-west coast in May 2026.
+May 2026.

@@ -26,8 +26,8 @@ photos:
   - menorca/menorca-17
   - menorca/menorca-18
   - menorca/menorca-19
-gallery_blurb: The north coast, the lighthouse at Cap de Cavalleria, and Ciutadella in the west. July 2025.
+gallery_blurb: July 2025, working my way round the island.
 ---
-Cap de Cavalleria is the northernmost point of the island — a lighthouse on a headland with nothing beyond it.
+Cap de Cavalleria is as far north as Menorca goes: a lighthouse on a headland, and then nothing.
 
-Arenal d'en Castell sits further east, a near-circular bay. Ciutadella is at the other end of the island entirely.
+Arenal d'en Castell is over on the north coast, a bay that's almost a full circle. Ciutadella is at the opposite end of the island entirely.

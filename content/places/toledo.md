@@ -6,6 +6,6 @@ hero: toledo/toledo-01
 photos:
   - toledo/toledo-01
   - toledo/toledo-02
-gallery_blurb: The old city on its bend of the Tagus, December 2025.
+gallery_blurb: December 2025.
 ---
-The old city on its bend of the Tagus, December 2025.
+The old city sits inside a bend of the Tagus, with the river round three sides of it.

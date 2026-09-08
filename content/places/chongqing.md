@@ -20,8 +20,8 @@ photos:
   - chongqing/chongqing-11
   - chongqing/chongqing-12
   - chongqing/chongqing-13
-gallery_blurb: Where the Jialing meets the Yangtze — a city built up the sides of its own hills. December 2024.
+gallery_blurb: December 2024, where the Jialing runs into the Yangtze.
 ---
-Bridges cross at several heights at once, and the towers keep going back into the haze.
+The city is built up the sides of its own hills, so the bridges cross at several heights at once and the towers keep going back into the haze until you lose them.
 
-After Chengdu and Kunming it felt relentless: neon over the skyline and the smell of hotpot in the street at night.
+After Chengdu and Kunming it felt relentless — neon over the skyline, and the scent of hotpot rising through the night air.
