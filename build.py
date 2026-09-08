@@ -414,6 +414,12 @@ def photo_grid(keys, place_title=""):
     return f'<div class="grid">{"".join(cells)}</div>'
 
 
+CHEVRON = ('<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
+           '<path d="M15 4 L7 12 L15 20" fill="none" stroke="currentColor" '
+           'stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+           '</svg>')
+
+
 def carousel(keys, label="Highlights"):
     """One photograph at a time, with arrows. Falls back to a plain
     horizontal scroller when JavaScript is unavailable."""
@@ -434,12 +440,12 @@ def carousel(keys, label="Highlights"):
 <div class="carousel" data-carousel aria-roledescription="carousel"
      aria-label="{html.escape(label)}">
   <button class="carousel__nav carousel__nav--prev" type="button"
-          aria-label="Previous photograph">&#8249;</button>
+          aria-label="Previous photograph">{CHEVRON}</button>
   <div class="carousel__viewport">
     <ul class="carousel__track">{"".join(slides)}</ul>
   </div>
   <button class="carousel__nav carousel__nav--next" type="button"
-          aria-label="Next photograph">&#8250;</button>
+          aria-label="Next photograph">{CHEVRON}</button>
   <p class="carousel__count" aria-live="polite"></p>
 </div>
 """

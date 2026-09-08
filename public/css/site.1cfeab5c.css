@@ -13,6 +13,8 @@
 
   --display: "Cormorant Garamond", Cormorant, Georgia, "Times New Roman", serif;
   --body: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+  --ui: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+        Arial, sans-serif;
 
   --wrap: 1240px;
   --gap: clamp(1.25rem, 4vw, 3rem);
@@ -69,13 +71,19 @@ p:last-child { margin-bottom: 0; }
 .measure { max-width: 62ch; }
 
 .eyebrow {
-  font-family: var(--display);
-  font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
+  font-family: var(--ui);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #3a4f63;
   margin: 0 0 0.9rem;
+}
+
+/* Anywhere the ground goes dark the eyebrow has to come up with it.
+   About is cream, so it is deliberately not in this list. */
+.band--dark .eyebrow {
+  color: rgba(249, 243, 231, 0.82);
 }
 
 .skip {
@@ -722,11 +730,14 @@ p:last-child { margin-bottom: 0; }
 
 /* ---------------------------------------------------------------- footer */
 
+/* Cream, so the bottom of the page reads as one continuous field with the
+   About section above it rather than a navy slab bolted on. */
 .site-footer {
-  background: var(--navy-mid);
-  color: var(--cream);
-  padding: clamp(3rem, 7vw, 4.5rem) 0 2.5rem;
+  background: var(--cream);
+  color: var(--navy);
+  padding: clamp(2.5rem, 6vw, 4rem) 0 2.5rem;
   text-align: center;
+  border-top: 1px solid rgba(21, 39, 57, 0.1);
 }
 
 .site-footer__mark {
@@ -734,22 +745,35 @@ p:last-child { margin-bottom: 0; }
   height: 52px;
   fill: currentColor;
   margin: 0 auto 1.2rem;
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 .site-footer__tagline {
   font-family: var(--display);
   font-style: italic;
   font-size: 1.25rem;
-  opacity: 0.88;
+  color: #33475a;
   margin: 0;
+}
+
+.site-footer .socials { justify-content: center; }
+
+.site-footer .socials a {
+  background: var(--navy);
+  border-color: transparent;
+  color: var(--cream);
+}
+.site-footer .socials a:hover {
+  background: var(--navy-mid);
+  border-color: transparent;
 }
 
 .site-footer__legal {
   margin: 2.2rem 0 0;
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
-  opacity: 0.62;
+  font-family: var(--ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  color: var(--muted);
 }
 
 /* -------------------------------------------------------------- lightbox */
@@ -778,30 +802,38 @@ p:last-child { margin-bottom: 0; }
 
 .lightbox__btn {
   position: absolute;
-  background: none;
+  display: grid;
+  place-items: center;
+  background: rgba(12, 22, 33, 0.55);
   border: 0;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
   color: var(--cream);
   cursor: pointer;
-  padding: 1rem;
-  font-size: 2rem;
-  line-height: 1;
-  opacity: 0.7;
-  transition: opacity 0.2s var(--ease);
-  font-family: var(--display);
+  padding: 0;
+  opacity: 0.75;
+  transition: opacity 0.2s var(--ease), background 0.2s var(--ease);
 }
+.lightbox__btn svg { width: 22px; height: 22px; display: block; }
+.lightbox__next svg { transform: rotate(180deg); }
+.lightbox__btn:hover { background: rgba(12, 22, 33, 0.85); }
 .lightbox__btn:hover { opacity: 1; }
-.lightbox__close { top: 0.5rem; right: 0.75rem; font-size: 2.4rem; }
-.lightbox__prev { left: 0.5rem; top: 50%; translate: 0 -50%; }
-.lightbox__next { right: 0.5rem; top: 50%; translate: 0 -50%; }
+.lightbox__close { top: 1rem; right: 1rem; }
+.lightbox__prev { left: 1rem; top: 50%; transform: translateY(-50%); }
+.lightbox__next { right: 1rem; top: 50%; transform: translateY(-50%); }
 
 .lightbox__count {
   position: absolute;
   bottom: 1.2rem;
   left: 50%;
-  translate: -50% 0;
-  color: rgba(249, 243, 231, 0.65);
-  font-size: 0.85rem;
-  letter-spacing: 0.18em;
+  transform: translateX(-50%);
+  color: rgba(249, 243, 231, 0.8);
+  font-family: var(--ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  font-variant-numeric: tabular-nums;
 }
 
 /* ------------------------------------------------------------ responsive */
@@ -884,9 +916,6 @@ p:last-child { margin-bottom: 0; }
      photograph happens to sit behind them. */
   background: var(--navy);
   color: var(--cream);
-  font-family: var(--display);
-  font-size: 1.7rem;
-  line-height: 1;
   cursor: pointer;
   box-shadow: 0 6px 20px -8px rgba(21, 39, 57, 0.65);
   /* Centring and hover growth share one transform. Previously the
@@ -904,6 +933,9 @@ p:last-child { margin-bottom: 0; }
 }
 .carousel__nav:active { transform: translateY(-50%) scale(0.97); }
 
+.carousel__nav svg { width: 21px; height: 21px; display: block; }
+.carousel__nav--next svg { transform: rotate(180deg); }
+
 .carousel__nav--prev { left: -24px; }
 .carousel__nav--next { right: -24px; }
 
@@ -913,17 +945,20 @@ p:last-child { margin-bottom: 0; }
 }
 
 @media (max-width: 620px) {
-  .carousel__nav { width: 40px; height: 40px; font-size: 1.35rem; }
+  .carousel__nav { width: 40px; height: 40px; }
+  .carousel__nav svg { width: 18px; height: 18px; }
   .carousel__nav--prev { left: 8px; }
   .carousel__nav--next { right: 8px; }
 }
 
 .carousel__count {
   text-align: center;
-  margin: 1.1rem 0 0;
-  font-family: var(--display);
-  font-size: 0.95rem;
-  letter-spacing: 0.2em;
-  color: var(--muted);
+  margin: 1.2rem 0 0;
+  font-family: var(--ui);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  font-variant-numeric: tabular-nums;
+  color: #3a4f63;
 }
 .band--dark .carousel__count { color: rgba(249, 243, 231, 0.7); }

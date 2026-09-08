@@ -133,10 +133,16 @@
   box.setAttribute("role", "dialog");
   box.setAttribute("aria-modal", "true");
   box.setAttribute("aria-label", "Photograph");
+  // Drawn rather than typed: serif punctuation rendered as thin ornament
+  // at this size and read as decoration instead of a control.
+  var chevron = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 L7 12 L15 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   box.innerHTML =
-    '<button class="lightbox__btn lightbox__close" aria-label="Close">&times;</button>' +
-    '<button class="lightbox__btn lightbox__prev" aria-label="Previous">&#8249;</button>' +
-    '<button class="lightbox__btn lightbox__next" aria-label="Next">&#8250;</button>' +
+    '<button class="lightbox__btn lightbox__close" aria-label="Close">' +
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19" ' +
+      'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>' +
+    '</button>' +
+    '<button class="lightbox__btn lightbox__prev" aria-label="Previous">' + chevron + '</button>' +
+    '<button class="lightbox__btn lightbox__next" aria-label="Next">' + chevron + '</button>' +
     '<img alt=""><p class="lightbox__count"></p>';
   document.body.appendChild(box);
 
