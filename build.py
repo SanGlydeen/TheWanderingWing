@@ -538,6 +538,24 @@ def build_place(place):
     return page(place["title"], body, "Gallery", desc)
 
 
+def build_404():
+    body = """
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Error 404</p>
+    <h1>Off the map</h1>
+    <div class="measure">
+      <p>This page does not exist, or it has wandered off since you last
+      looked. The <a href="/gallery/">gallery</a> and the
+      <a href="/films/">films</a> are both still where they should be.</p>
+    </div>
+    <p style="margin-top:2.5rem"><a class="button" href="/">Back home</a></p>
+  </div>
+</section>
+"""
+    return page("Not found", body, "", "This page could not be found.")
+
+
 def build_films():
     blocks = "".join(f'<div class="films__item">{film_block(f)}</div>'
                      for f in FILMS)
@@ -579,6 +597,7 @@ def main():
     write("index.html", build_home())
     write("gallery/index.html", build_gallery_index())
     write("films/index.html", build_films())
+    write("404.html", build_404())
     for p in GALLERIES:
         write(f"gallery/{p['slug']}/index.html", build_place(p))
 

@@ -1,0 +1,27 @@
+{
+  // Cloudflare deployment config.
+  //
+  // There is no Worker script here on purpose. This declares an assets-only
+  // deployment: Cloudflare serves the contents of public/ straight from its
+  // CDN and runs no code, so nothing is billable and nothing can break at
+  // runtime. "Workers" is just the product these static sites now live under
+  // since Cloudflare folded Pages into it.
+  //
+  // Deployed by Workers Builds on every push to main, via `npx wrangler deploy`.
+  // Nothing needs to be installed locally — Cloudflare's build container
+  // provides Node and wrangler.
+
+  "name": "thewanderingwing",
+  "compatibility_date": "2025-09-01",
+
+  "assets": {
+    "directory": "./public",
+
+    // Serves /gallery/ from /gallery/index.html and redirects /gallery to it,
+    // which is what the internal links assume.
+    "html_handling": "auto-trailing-slash",
+
+    // Unknown paths get the site's own 404 page rather than a bare error.
+    "not_found_handling": "404-page"
+  }
+}
