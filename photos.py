@@ -165,8 +165,20 @@ def build(groups):
                       f"({entry['width']}x{entry['height']}, "
                       f"{len(entry['sizes'])} sizes)")
 
+    # Drop entries whose derivatives are gone — a photograph removed from
+    # the library would otherwise linger in the manifest and the site would
+    # reference a file that no longer exists. The build's missing-key check
+    # cannot catch that, because the key is still there.
+    stale = [k for k, v in manifest.items()
+             if not (ROOT / "public" / v["src"].lstrip("/")).is_file()]
+    for k in stale:
+        del manifest[k]
+
     MANIFEST.write_text(json.dumps(manifest, indent=2, sort_keys=True))
-    print(f"\nwrote {MANIFEST.name}: {len(manifest)} images")
+    msg = f"\nwrote {MANIFEST.name}: {len(manifest)} images"
+    if stale:
+        msg += f" ({len(stale)} stale entries pruned)"
+    print(msg)
     return manifest
 
 
@@ -191,7 +203,10 @@ if __name__ == "__main__":
         files = listing(rel)
         if files:
             groups[slug] = files
-    groups["brand"] = listing("Brand") + listing("Brand/Logo")
+    # Only the portrait. The logo files are kept in the library for
+    # Samuel's own use, but the site draws the bird from /img/mark.svg,
+    # so shipping resized copies of eight logo variants is dead weight.
+    groups["brand"] = listing("Brand")
     groups["film-stills"] = listing("Film stills")
 
     build({k: v for k, v in groups.items() if v})

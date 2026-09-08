@@ -25,7 +25,6 @@ FOLDERS = {
     "segovia": "2024-05 Segovia",
     "suzhou": "2025-12 Suzhou",
     "toledo": "2025-12 Toledo",
-    "unsorted": "Photos/Unsorted",
 }
 
 ASSIGN = {}

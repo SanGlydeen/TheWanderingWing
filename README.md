@@ -29,8 +29,12 @@ the screen it is on.
 
 ## Adding a place
 
-1. Drop the photos into a new folder under `Posts/` in the iCloud library.
-2. Add that folder to the `groups` dict at the bottom of `photos.py`.
+1. Make a folder under `Photos/` in the iCloud library, named
+   `YYYY-MM Place` — for example `2026-08 Lisbon`. Put the photographs in
+   it, named `lisbon-01.jpg` and so on. The filename becomes the public
+   URL and the alt text, so it is worth naming them for what they show:
+   `alfama-01.jpg`, `belem-01.jpg`.
+2. Add the folder to `FOLDERS` in `assignments.py`, keyed by slug.
 3. Run `python3 photos.py` to generate the derivatives.
 4. Create `content/places/<slug>.md`:
 
@@ -48,6 +52,15 @@ the screen it is on.
        A paragraph about the place.
 
 5. Run `python3 build.py`, then commit and push. Cloudflare deploys the rest.
+
+A place with six or more photographs, or a film, gets its own page. Below
+that it appears as a section on `/gallery/elsewhere/` and moves out on its
+own once it grows. Nothing to configure — `build.py` decides from the
+count.
+
+Photographs are committed to the repository because Cloudflare serves
+`public/` as-is with no build step. A large batch can stall a single push,
+so push it a folder at a time.
 
 ## Adding a film
 

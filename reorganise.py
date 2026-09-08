@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""One-off reorganisation of the iCloud photo library.
+"""One-off reorganisation of the iCloud photo library. ALREADY RUN.
+
+Applied on 8 September 2026: 117 files moved, 14 duplicates dropped.
+Kept for the record and because reorganise-map.json reverses it.
+Do not run it again — the library is already in its target shape.
 
 The library grew as folders named after posts ("Posts/1. Mount Siguniang
 1&2/O/2. Changping Valley"), with camera filenames, several copies of the
