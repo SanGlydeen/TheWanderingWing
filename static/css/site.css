@@ -861,31 +861,50 @@ p:last-child { margin-bottom: 0; }
 .carousel__nav {
   position: absolute;
   top: 50%;
-  translate: 0 -50%;
   z-index: 3;
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
   display: grid;
   place-items: center;
-  border: 0;
+  padding: 0;
+  border: 1px solid rgba(249, 243, 231, 0.25);
   border-radius: 50%;
-  background: rgba(249, 243, 231, 0.9);
-  color: var(--navy);
+  /* Solid navy, so they read against both the cream page and whichever
+     photograph happens to sit behind them. */
+  background: var(--navy);
+  color: var(--cream);
   font-family: var(--display);
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   line-height: 1;
   cursor: pointer;
-  box-shadow: 0 4px 16px -6px rgba(21, 39, 57, 0.5);
-  transition: background 0.25s var(--ease), transform 0.25s var(--ease);
+  box-shadow: 0 6px 20px -8px rgba(21, 39, 57, 0.65);
+  /* Centring and hover growth share one transform. Previously the
+     centring used the `translate` property while the hover used
+     `transform`, so they compounded and threw the button upwards. */
+  transform: translateY(-50%);
+  transition: background 0.25s var(--ease), transform 0.25s var(--ease),
+              border-color 0.25s var(--ease);
 }
-.carousel__nav:hover { background: var(--cream); transform: scale(1.06) translateY(-50%); }
-.carousel__nav--prev { left: clamp(-22px, -2vw, 0px); }
-.carousel__nav--next { right: clamp(-22px, -2vw, 0px); }
+
+.carousel__nav:hover {
+  background: var(--navy-mid);
+  border-color: rgba(249, 243, 231, 0.5);
+  transform: translateY(-50%) scale(1.08);
+}
+.carousel__nav:active { transform: translateY(-50%) scale(0.97); }
+
+.carousel__nav--prev { left: -24px; }
+.carousel__nav--next { right: -24px; }
+
+@media (max-width: 1080px) {
+  .carousel__nav--prev { left: 10px; }
+  .carousel__nav--next { right: 10px; }
+}
 
 @media (max-width: 620px) {
-  .carousel__nav--prev { left: 6px; }
-  .carousel__nav--next { right: 6px; }
-  .carousel__nav { width: 38px; height: 38px; font-size: 1.4rem; }
+  .carousel__nav { width: 40px; height: 40px; font-size: 1.35rem; }
+  .carousel__nav--prev { left: 8px; }
+  .carousel__nav--next { right: 8px; }
 }
 
 .carousel__count {
