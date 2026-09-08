@@ -89,8 +89,8 @@ def render(key, label, blurb):
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap">
-<link rel="stylesheet" href="/css/site.css">
-<link rel="stylesheet" href="/css/preview.css">
+<link rel="stylesheet" href="{build.CSS_HREF}">
+<link rel="stylesheet" href="{build.PREVIEW_CSS}">
 </head>
 <body class="preview">
 {switcher(key)}
@@ -117,8 +117,8 @@ def main():
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex"><title>Layout options</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap">
-<link rel="stylesheet" href="/css/site.css">
-<link rel="stylesheet" href="/css/preview.css"></head>
+<link rel="stylesheet" href="{build.CSS_HREF}">
+<link rel="stylesheet" href="{build.PREVIEW_CSS}"></head>
 <body class="preview"><div class="wrap preview__index">
 <h1>Layout options</h1>
 <p class="measure">Three treatments of the same five places. Look on your

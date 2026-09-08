@@ -11,10 +11,12 @@ macOS, so there is no toolchain to install or keep alive.
     python3 build.py     # generate the site (fast, run any time)
 """
 
+import hashlib
 import html
 import json
 import re
 import shutil
+import sys
 from datetime import date
 from pathlib import Path
 
@@ -113,10 +115,14 @@ def pretty_date(value):
 MANIFEST = json.loads((ROOT / "photo-manifest.json").read_text())
 
 
+MISSING = []
+
+
 def img(key, alt, sizes="100vw", cls="", eager=False, max_width=2400):
     """Render a responsive <img> for a manifest key like `london/img-5943`."""
     p = MANIFEST.get(key)
     if not p:
+        MISSING.append(key)
         return f"<!-- missing photo: {key} -->"
 
     widths = [w for w in p["sizes"] if w <= max_width] or p["sizes"]
@@ -180,7 +186,7 @@ GALLERIES.sort(key=lambda p: str(p.get("date", "")), reverse=True)
 HIGHLIGHTS = [
     "highlights/dji-20241130155638-0141-d",
     "highlights/dji-20250704203954-0062-d",
-    "highlights/dji-20250930151411-0039-d-2",
+    "london/dji-20250930151411-0039-d-2",
     "highlights/img-3133",
     "highlights/img-4555",
     "highlights/img-4873",
@@ -206,6 +212,19 @@ def mark(cls=""):
     return (f'<svg{cls} viewBox="{MARK_VIEWBOX}" aria-hidden="true" '
             f'focusable="false"><use href="#ww-mark"/></svg>')
 
+
+def asset(rel):
+    """Copy static/<rel> to public/ under a content-hashed name."""
+    src = STATIC / rel
+    digest = hashlib.md5(src.read_bytes()).hexdigest()[:8]
+    stem, dot, ext = rel.rpartition(".")
+    return f"/{stem}.{digest}.{ext}"
+
+
+CSS_HREF = asset("css/site.css")
+JS_SRC = asset("js/site.js")
+PREVIEW_CSS = (asset("css/preview.css")
+               if (STATIC / "css/preview.css").is_file() else "")
 
 # --------------------------------------------------------------------
 # layout
@@ -291,7 +310,7 @@ def page(title, body, active, description, hero_header=False, css_extra="",
 <link rel="apple-touch-icon" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap">
-<link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="{CSS_HREF}">
 {css_extra}
 </head>
 <body>
@@ -322,7 +341,7 @@ def page(title, body, active, description, hero_header=False, css_extra="",
   </div>
 </footer>
 
-<script src="/js/site.js" defer></script>
+<script src="{JS_SRC}" defer></script>
 </body>
 </html>
 """
@@ -663,10 +682,14 @@ def main():
         write(f"gallery/{p['slug']}/index.html", build_place(p))
 
     # static assets
-    for sub in ("css", "js", "img"):
-        src = STATIC / sub
-        if src.is_dir():
-            shutil.copytree(src, OUT / sub, dirs_exist_ok=True)
+    (OUT / "css").mkdir(parents=True, exist_ok=True)
+    (OUT / "js").mkdir(parents=True, exist_ok=True)
+    shutil.copy(STATIC / "css/site.css", OUT / CSS_HREF.lstrip("/"))
+    shutil.copy(STATIC / "js/site.js", OUT / JS_SRC.lstrip("/"))
+    if PREVIEW_CSS:
+        shutil.copy(STATIC / "css/preview.css", OUT / PREVIEW_CSS.lstrip("/"))
+    if (STATIC / "img").is_dir():
+        shutil.copytree(STATIC / "img", OUT / "img", dirs_exist_ok=True)
 
     # Cloudflare reads _headers from the root of the served directory.
     for loose in ("_headers", "_redirects"):
@@ -700,6 +723,12 @@ def main():
     todo = [p["title"] for p in PLACES if is_true(p.get("needs_rewrite"))]
     if todo:
         print(f"copy still to rewrite: {', '.join(todo)}")
+
+    if MISSING:
+        for key in sorted(set(MISSING)):
+            print(f"  !! photo not in manifest, skipped: {key}", file=sys.stderr)
+        raise SystemExit(f"{len(set(MISSING))} photo(s) missing — "
+                         f"run photos.py or fix the key")
 
 
 if __name__ == "__main__":

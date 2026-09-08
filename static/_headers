@@ -23,11 +23,11 @@
 /favicon.png
   Cache-Control: public, max-age=2592000
 
-# These do change, and are not content-hashed either. An hour is long enough
-# to help repeat visits and short enough that a design fix reaches people the
-# same day.
+# CSS and JS filenames carry a hash of their contents, so a change produces
+# a new URL. That makes them safe to cache indefinitely, and removes the
+# window where fresh HTML could be paired with a stale stylesheet or script.
 /css/*
-  Cache-Control: public, max-age=3600
+  Cache-Control: public, max-age=31536000, immutable
 
 /js/*
-  Cache-Control: public, max-age=3600
+  Cache-Control: public, max-age=31536000, immutable
