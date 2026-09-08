@@ -113,6 +113,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 .brand {
+  white-space: nowrap;
   display: inline-flex;
   align-items: center;
   gap: 0.7rem;
@@ -122,7 +123,9 @@ p:last-child { margin-bottom: 0; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
-.brand img { width: 40px; height: auto; }
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+.brand__mark { height: 34px; width: 34px; fill: currentColor; }
 
 .site-nav {
   display: flex;
@@ -164,12 +167,19 @@ p:last-child { margin-bottom: 0; }
   border-bottom-color: transparent;
   color: var(--cream);
 }
+.site-header--hero .brand {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s var(--ease), visibility 0.35s var(--ease);
+}
+.site-header--hero.is-stuck .brand { opacity: 1; visibility: visible; }
+
 .site-header--hero.is-stuck {
   background: rgba(21, 39, 57, 0.94);
   backdrop-filter: blur(10px);
   border-bottom-color: rgba(249, 243, 231, 0.14);
 }
-.site-header--hero .brand img { filter: brightness(0) invert(1); }
+
 
 /* ------------------------------------------------------------------ hero */
 
@@ -195,11 +205,11 @@ p:last-child { margin-bottom: 0; }
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(180deg,
-      rgba(15, 30, 45, 0.58) 0%,
-      rgba(15, 30, 45, 0.30) 38%,
-      rgba(15, 30, 45, 0.30) 62%,
-      rgba(15, 30, 45, 0.72) 100%);
+    linear-gradient(to bottom,
+      rgba(15, 30, 45, 0.62) 0%, rgba(15, 30, 45, 0) 46%),
+    linear-gradient(to top,
+      rgba(15, 30, 45, 0.72) 0%, rgba(15, 30, 45, 0) 52%),
+    rgba(15, 30, 45, 0.16);
 }
 
 .hero__inner {
@@ -223,11 +233,12 @@ p:last-child { margin-bottom: 0; }
 }
 
 .hero__logo {
-  width: clamp(90px, 12vw, 140px);
+  width: clamp(64px, 8vw, 96px);
   height: auto;
+  aspect-ratio: 1;
+  fill: currentColor;
   margin: 0 auto 1.75rem;
-  filter: brightness(0) invert(1)
-          drop-shadow(0 2px 14px rgba(10, 20, 32, 0.75));
+  filter: drop-shadow(0 2px 14px rgba(10, 20, 32, 0.75));
   opacity: 0.96;
 }
 
@@ -690,9 +701,10 @@ p:last-child { margin-bottom: 0; }
 }
 
 .site-footer__mark {
-  width: 66px;
+  width: 52px;
+  height: 52px;
+  fill: currentColor;
   margin: 0 auto 1.2rem;
-  filter: brightness(0) invert(1);
   opacity: 0.9;
 }
 

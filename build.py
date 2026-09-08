@@ -187,6 +187,26 @@ HIGHLIGHTS = [
 ]
 
 
+# The bird, inlined as a <symbol> so each placement inherits its colour
+# from CSS. An <img src="*.svg"> renders in its own document and would
+# ignore currentColor entirely.
+_mark_svg = (STATIC / "img" / "mark.svg").read_text()
+MARK_VIEWBOX = re.search(r'viewBox="([^"]+)"', _mark_svg).group(1)
+MARK_PATH = re.search(r"(<path\b[^>]*/?>)", _mark_svg).group(1)
+
+
+def mark_sprite():
+    return (f'<svg class="sprite" aria-hidden="true" focusable="false">'
+            f'<symbol id="ww-mark" viewBox="{MARK_VIEWBOX}">{MARK_PATH}</symbol>'
+            f'</svg>')
+
+
+def mark(cls=""):
+    cls = f' class="{cls}"' if cls else ""
+    return (f'<svg{cls} viewBox="{MARK_VIEWBOX}" aria-hidden="true" '
+            f'focusable="false"><use href="#ww-mark"/></svg>')
+
+
 # --------------------------------------------------------------------
 # layout
 # --------------------------------------------------------------------
@@ -243,7 +263,6 @@ def socials(cls="socials"):
 def page(title, body, active, description, hero_header=False, css_extra="",
          path=None):
     """Wrap page content in the shared shell."""
-    mark = "/img/mark.png"
     header_cls = " site-header--hero" if hero_header else ""
     year = date.today().year
 
@@ -276,12 +295,13 @@ def page(title, body, active, description, hero_header=False, css_extra="",
 {css_extra}
 </head>
 <body>
+{mark_sprite()}
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="site-header{header_cls}">
   <div class="wrap site-header__inner">
     <a class="brand" href="/">
-      <img src="{mark}" alt="" width="500" height="250">
+      {mark("brand__mark")}
       <span>{html.escape(SITE['name'])}</span>
     </a>
     <nav class="site-nav" aria-label="Main">{nav(active)}</nav>
@@ -294,7 +314,7 @@ def page(title, body, active, description, hero_header=False, css_extra="",
 
 <footer class="site-footer">
   <div class="wrap">
-    <img class="site-footer__mark" src="{mark}" alt="" width="500" height="250">
+    {mark("site-footer__mark")}
     <p class="site-footer__tagline">{html.escape(SITE['tagline'])}</p>
     {socials()}
     <p class="site-footer__legal">© {year} {html.escape(SITE['name'])} |
@@ -422,8 +442,7 @@ def build_home():
     {img(SITE['hero'], 'Aerial view', sizes='100vw', eager=True)}
   </div>
   <div class="hero__inner">
-    <img class="hero__logo" src="/img/mark.png"
-         alt="" width="500" height="250">
+    {mark("hero__logo")}
     <p class="hero__welcome">Welcome to</p>
     <h1 class="hero__title">{html.escape(SITE['name'])}</h1>
     <p class="hero__tagline">{html.escape(SITE['tagline'])}</p>
