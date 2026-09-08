@@ -1,0 +1,966 @@
+{
+  "brand/banner": {
+    "aspect": 1.7778,
+    "group": "brand",
+    "height": 2268,
+    "name": "banner",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Branding/Banner.JPG",
+    "src": "/photos/brand/banner-2400.jpg",
+    "srcset": "/photos/brand/banner-400.jpg 400w, /photos/brand/banner-800.jpg 800w, /photos/brand/banner-1400.jpg 1400w, /photos/brand/banner-2000.jpg 2000w, /photos/brand/banner-2400.jpg 2400w",
+    "width": 4032
+  },
+  "brand/copy-of-thewanderingwing-logo": {
+    "aspect": 1.0,
+    "group": "brand",
+    "height": 500,
+    "name": "copy-of-thewanderingwing-logo",
+    "orientation": "landscape",
+    "sizes": [
+      400
+    ],
+    "source": "Branding/Copy of TheWanderingWing Logo.png",
+    "src": "/photos/brand/copy-of-thewanderingwing-logo-400.jpg",
+    "srcset": "/photos/brand/copy-of-thewanderingwing-logo-400.jpg 400w",
+    "width": 500
+  },
+  "brand/copy-of-thewanderingwing-logo-bigger": {
+    "aspect": 1.0,
+    "group": "brand",
+    "height": 500,
+    "name": "copy-of-thewanderingwing-logo-bigger",
+    "orientation": "landscape",
+    "sizes": [
+      400
+    ],
+    "source": "Branding/Copy of TheWanderingWing Logo Bigger.png",
+    "src": "/photos/brand/copy-of-thewanderingwing-logo-bigger-400.jpg",
+    "srcset": "/photos/brand/copy-of-thewanderingwing-logo-bigger-400.jpg 400w",
+    "width": 500
+  },
+  "brand/high-res-wanderingwing-logo": {
+    "aspect": 1.0,
+    "group": "brand",
+    "height": 2000,
+    "name": "high-res-wanderingwing-logo",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000
+    ],
+    "source": "Branding/High Res WanderingWing Logo.png",
+    "src": "/photos/brand/high-res-wanderingwing-logo-2000.jpg",
+    "srcset": "/photos/brand/high-res-wanderingwing-logo-400.jpg 400w, /photos/brand/high-res-wanderingwing-logo-800.jpg 800w, /photos/brand/high-res-wanderingwing-logo-1400.jpg 1400w, /photos/brand/high-res-wanderingwing-logo-2000.jpg 2000w",
+    "width": 2000
+  },
+  "brand/img-4771": {
+    "aspect": 0.75,
+    "group": "brand",
+    "height": 4032,
+    "name": "img-4771",
+    "orientation": "portrait",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Branding/IMG_4771.jpeg",
+    "src": "/photos/brand/img-4771-2400.jpg",
+    "srcset": "/photos/brand/img-4771-400.jpg 400w, /photos/brand/img-4771-800.jpg 800w, /photos/brand/img-4771-1400.jpg 1400w, /photos/brand/img-4771-2000.jpg 2000w, /photos/brand/img-4771-2400.jpg 2400w",
+    "width": 3024
+  },
+  "brand/thewanderingwing-logo": {
+    "aspect": 1.0,
+    "group": "brand",
+    "height": 1024,
+    "name": "thewanderingwing-logo",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800
+    ],
+    "source": "Branding/TheWanderingWing Logo.png",
+    "src": "/photos/brand/thewanderingwing-logo-800.jpg",
+    "srcset": "/photos/brand/thewanderingwing-logo-400.jpg 400w, /photos/brand/thewanderingwing-logo-800.jpg 800w",
+    "width": 1024
+  },
+  "brand/thewanderingwing-logo-final": {
+    "aspect": 1.0,
+    "group": "brand",
+    "height": 500,
+    "name": "thewanderingwing-logo-final",
+    "orientation": "landscape",
+    "sizes": [
+      400
+    ],
+    "source": "Branding/TheWanderingWing Logo FINAL.png",
+    "src": "/photos/brand/thewanderingwing-logo-final-400.jpg",
+    "srcset": "/photos/brand/thewanderingwing-logo-final-400.jpg 400w",
+    "width": 500
+  },
+  "brand/thewanderingwing-logo-trans": {
+    "aspect": 1.0,
+    "group": "brand",
+    "height": 500,
+    "name": "thewanderingwing-logo-trans",
+    "orientation": "landscape",
+    "sizes": [
+      400
+    ],
+    "source": "Branding/TheWanderingWing Logo TRANS.png",
+    "src": "/photos/brand/thewanderingwing-logo-trans-400.jpg",
+    "srcset": "/photos/brand/thewanderingwing-logo-trans-400.jpg 400w",
+    "width": 500
+  },
+  "brand/thewanderingwing-logo-website": {
+    "aspect": 1.0,
+    "group": "brand",
+    "height": 500,
+    "name": "thewanderingwing-logo-website",
+    "orientation": "landscape",
+    "sizes": [
+      400
+    ],
+    "source": "Branding/TheWanderingWing Logo Website.png",
+    "src": "/photos/brand/thewanderingwing-logo-website-400.jpg",
+    "srcset": "/photos/brand/thewanderingwing-logo-website-400.jpg 400w",
+    "width": 500
+  },
+  "highlights/dji-20240517182022-0057-d": {
+    "aspect": 1.7778,
+    "group": "highlights",
+    "height": 2268,
+    "name": "dji-20240517182022-0057-d",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Highlights/DJI_20240517182022_0057_D.JPG",
+    "src": "/photos/highlights/dji-20240517182022-0057-d-2400.jpg",
+    "srcset": "/photos/highlights/dji-20240517182022-0057-d-400.jpg 400w, /photos/highlights/dji-20240517182022-0057-d-800.jpg 800w, /photos/highlights/dji-20240517182022-0057-d-1400.jpg 1400w, /photos/highlights/dji-20240517182022-0057-d-2000.jpg 2000w, /photos/highlights/dji-20240517182022-0057-d-2400.jpg 2400w",
+    "width": 4032
+  },
+  "highlights/dji-20240730152115-0255-d": {
+    "aspect": 1.7778,
+    "group": "highlights",
+    "height": 2268,
+    "name": "dji-20240730152115-0255-d",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Highlights/DJI_20240730152115_0255_D.JPG",
+    "src": "/photos/highlights/dji-20240730152115-0255-d-2400.jpg",
+    "srcset": "/photos/highlights/dji-20240730152115-0255-d-400.jpg 400w, /photos/highlights/dji-20240730152115-0255-d-800.jpg 800w, /photos/highlights/dji-20240730152115-0255-d-1400.jpg 1400w, /photos/highlights/dji-20240730152115-0255-d-2000.jpg 2000w, /photos/highlights/dji-20240730152115-0255-d-2400.jpg 2400w",
+    "width": 4032
+  },
+  "highlights/dji-20241130155638-0141-d": {
+    "aspect": 1.7778,
+    "group": "highlights",
+    "height": 2268,
+    "name": "dji-20241130155638-0141-d",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Highlights/DJI_20241130155638_0141_D.JPG",
+    "src": "/photos/highlights/dji-20241130155638-0141-d-2400.jpg",
+    "srcset": "/photos/highlights/dji-20241130155638-0141-d-400.jpg 400w, /photos/highlights/dji-20241130155638-0141-d-800.jpg 800w, /photos/highlights/dji-20241130155638-0141-d-1400.jpg 1400w, /photos/highlights/dji-20241130155638-0141-d-2000.jpg 2000w, /photos/highlights/dji-20241130155638-0141-d-2400.jpg 2400w",
+    "width": 4032
+  },
+  "highlights/dji-20250704200720-0003-d": {
+    "aspect": 1.7778,
+    "group": "highlights",
+    "height": 2268,
+    "name": "dji-20250704200720-0003-d",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Highlights/DJI_20250704200720_0003_D.JPG",
+    "src": "/photos/highlights/dji-20250704200720-0003-d-2400.jpg",
+    "srcset": "/photos/highlights/dji-20250704200720-0003-d-400.jpg 400w, /photos/highlights/dji-20250704200720-0003-d-800.jpg 800w, /photos/highlights/dji-20250704200720-0003-d-1400.jpg 1400w, /photos/highlights/dji-20250704200720-0003-d-2000.jpg 2000w, /photos/highlights/dji-20250704200720-0003-d-2400.jpg 2400w",
+    "width": 4032
+  },
+  "highlights/dji-20250704203954-0062-d": {
+    "aspect": 1.7778,
+    "group": "highlights",
+    "height": 2268,
+    "name": "dji-20250704203954-0062-d",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Highlights/DJI_20250704203954_0062_D.JPG",
+    "src": "/photos/highlights/dji-20250704203954-0062-d-2400.jpg",
+    "srcset": "/photos/highlights/dji-20250704203954-0062-d-400.jpg 400w, /photos/highlights/dji-20250704203954-0062-d-800.jpg 800w, /photos/highlights/dji-20250704203954-0062-d-1400.jpg 1400w, /photos/highlights/dji-20250704203954-0062-d-2000.jpg 2000w, /photos/highlights/dji-20250704203954-0062-d-2400.jpg 2400w",
+    "width": 4032
+  },
+  "highlights/img-3123": {
+    "aspect": 1.7778,
+    "group": "highlights",
+    "height": 2268,
+    "name": "img-3123",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Highlights/IMG_3123.JPG",
+    "src": "/photos/highlights/img-3123-2400.jpg",
+    "srcset": "/photos/highlights/img-3123-400.jpg 400w, /photos/highlights/img-3123-800.jpg 800w, /photos/highlights/img-3123-1400.jpg 1400w, /photos/highlights/img-3123-2000.jpg 2000w, /photos/highlights/img-3123-2400.jpg 2400w",
+    "width": 4032
+  },
+  "highlights/img-3133": {
+    "aspect": 1.7778,
+    "group": "highlights",
+    "height": 2268,
+    "name": "img-3133",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Highlights/IMG_3133.JPG",
+    "src": "/photos/highlights/img-3133-2400.jpg",
+    "srcset": "/photos/highlights/img-3133-400.jpg 400w, /photos/highlights/img-3133-800.jpg 800w, /photos/highlights/img-3133-1400.jpg 1400w, /photos/highlights/img-3133-2000.jpg 2000w, /photos/highlights/img-3133-2400.jpg 2400w",
+    "width": 4032
+  },
+  "highlights/img-3246": {
+    "aspect": 1.7778,
+    "group": "highlights",
+    "height": 2268,
+    "name": "img-3246",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Highlights/IMG_3246.JPG",
+    "src": "/photos/highlights/img-3246-2400.jpg",
+    "srcset": "/photos/highlights/img-3246-400.jpg 400w, /photos/highlights/img-3246-800.jpg 800w, /photos/highlights/img-3246-1400.jpg 1400w, /photos/highlights/img-3246-2000.jpg 2000w, /photos/highlights/img-3246-2400.jpg 2400w",
+    "width": 4032
+  },
+  "highlights/img-4555": {
+    "aspect": 1.7778,
+    "group": "highlights",
+    "height": 2268,
+    "name": "img-4555",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Highlights/IMG_4555.JPG",
+    "src": "/photos/highlights/img-4555-2400.jpg",
+    "srcset": "/photos/highlights/img-4555-400.jpg 400w, /photos/highlights/img-4555-800.jpg 800w, /photos/highlights/img-4555-1400.jpg 1400w, /photos/highlights/img-4555-2000.jpg 2000w, /photos/highlights/img-4555-2400.jpg 2400w",
+    "width": 4032
+  },
+  "highlights/img-4873": {
+    "aspect": 1.7778,
+    "group": "highlights",
+    "height": 2268,
+    "name": "img-4873",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Highlights/IMG_4873.JPG",
+    "src": "/photos/highlights/img-4873-2400.jpg",
+    "srcset": "/photos/highlights/img-4873-400.jpg 400w, /photos/highlights/img-4873-800.jpg 800w, /photos/highlights/img-4873-1400.jpg 1400w, /photos/highlights/img-4873-2000.jpg 2000w, /photos/highlights/img-4873-2400.jpg 2400w",
+    "width": 4032
+  },
+  "highlights/img-4874": {
+    "aspect": 1.7778,
+    "group": "highlights",
+    "height": 2268,
+    "name": "img-4874",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Highlights/IMG_4874.JPG",
+    "src": "/photos/highlights/img-4874-2400.jpg",
+    "srcset": "/photos/highlights/img-4874-400.jpg 400w, /photos/highlights/img-4874-800.jpg 800w, /photos/highlights/img-4874-1400.jpg 1400w, /photos/highlights/img-4874-2000.jpg 2000w, /photos/highlights/img-4874-2400.jpg 2400w",
+    "width": 4032
+  },
+  "highlights/img-4916": {
+    "aspect": 1.7778,
+    "group": "highlights",
+    "height": 2268,
+    "name": "img-4916",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Highlights/IMG_4916.JPG",
+    "src": "/photos/highlights/img-4916-2400.jpg",
+    "srcset": "/photos/highlights/img-4916-400.jpg 400w, /photos/highlights/img-4916-800.jpg 800w, /photos/highlights/img-4916-1400.jpg 1400w, /photos/highlights/img-4916-2000.jpg 2000w, /photos/highlights/img-4916-2400.jpg 2400w",
+    "width": 4032
+  },
+  "highlights/img-7612": {
+    "aspect": 1.7775,
+    "group": "highlights",
+    "height": 1861,
+    "name": "img-7612",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Highlights/IMG_7612.JPG",
+    "src": "/photos/highlights/img-7612-2400.jpg",
+    "srcset": "/photos/highlights/img-7612-400.jpg 400w, /photos/highlights/img-7612-800.jpg 800w, /photos/highlights/img-7612-1400.jpg 1400w, /photos/highlights/img-7612-2000.jpg 2000w, /photos/highlights/img-7612-2400.jpg 2400w",
+    "width": 3308
+  },
+  "highlights/img-7742": {
+    "aspect": 1.4205,
+    "group": "highlights",
+    "height": 5632,
+    "name": "img-7742",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Highlights/IMG_7742.JPG",
+    "src": "/photos/highlights/img-7742-2400.jpg",
+    "srcset": "/photos/highlights/img-7742-400.jpg 400w, /photos/highlights/img-7742-800.jpg 800w, /photos/highlights/img-7742-1400.jpg 1400w, /photos/highlights/img-7742-2000.jpg 2000w, /photos/highlights/img-7742-2400.jpg 2400w",
+    "width": 8000
+  },
+  "highlights/img-7743": {
+    "aspect": 1.7778,
+    "group": "highlights",
+    "height": 2268,
+    "name": "img-7743",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Highlights/IMG_7743.JPG",
+    "src": "/photos/highlights/img-7743-2400.jpg",
+    "srcset": "/photos/highlights/img-7743-400.jpg 400w, /photos/highlights/img-7743-800.jpg 800w, /photos/highlights/img-7743-1400.jpg 1400w, /photos/highlights/img-7743-2000.jpg 2000w, /photos/highlights/img-7743-2400.jpg 2400w",
+    "width": 4032
+  },
+  "highlights/img-7745": {
+    "aspect": 1.7778,
+    "group": "highlights",
+    "height": 2268,
+    "name": "img-7745",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Highlights/IMG_7745.JPG",
+    "src": "/photos/highlights/img-7745-2400.jpg",
+    "srcset": "/photos/highlights/img-7745-400.jpg 400w, /photos/highlights/img-7745-800.jpg 800w, /photos/highlights/img-7745-1400.jpg 1400w, /photos/highlights/img-7745-2000.jpg 2000w, /photos/highlights/img-7745-2400.jpg 2400w",
+    "width": 4032
+  },
+  "highlights/img-7746": {
+    "aspect": 1.7778,
+    "group": "highlights",
+    "height": 2268,
+    "name": "img-7746",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Highlights/IMG_7746.JPG",
+    "src": "/photos/highlights/img-7746-2400.jpg",
+    "srcset": "/photos/highlights/img-7746-400.jpg 400w, /photos/highlights/img-7746-800.jpg 800w, /photos/highlights/img-7746-1400.jpg 1400w, /photos/highlights/img-7746-2000.jpg 2000w, /photos/highlights/img-7746-2400.jpg 2400w",
+    "width": 4032
+  },
+  "highlights/img-7818": {
+    "aspect": 1.7778,
+    "group": "highlights",
+    "height": 2268,
+    "name": "img-7818",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Highlights/IMG_7818.JPG",
+    "src": "/photos/highlights/img-7818-2400.jpg",
+    "srcset": "/photos/highlights/img-7818-400.jpg 400w, /photos/highlights/img-7818-800.jpg 800w, /photos/highlights/img-7818-1400.jpg 1400w, /photos/highlights/img-7818-2000.jpg 2000w, /photos/highlights/img-7818-2400.jpg 2400w",
+    "width": 4032
+  },
+  "highlights/img-8115": {
+    "aspect": 1.4205,
+    "group": "highlights",
+    "height": 5632,
+    "name": "img-8115",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Highlights/IMG_8115.JPG",
+    "src": "/photos/highlights/img-8115-2400.jpg",
+    "srcset": "/photos/highlights/img-8115-400.jpg 400w, /photos/highlights/img-8115-800.jpg 800w, /photos/highlights/img-8115-1400.jpg 1400w, /photos/highlights/img-8115-2000.jpg 2000w, /photos/highlights/img-8115-2400.jpg 2400w",
+    "width": 8000
+  },
+  "london/dji-20250930150852-0012-d": {
+    "aspect": 0.5625,
+    "group": "london",
+    "height": 4032,
+    "name": "dji-20250930150852-0012-d",
+    "orientation": "portrait",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000
+    ],
+    "source": "Posts/2. London/DJI_20250930150852_0012_D.JPG",
+    "src": "/photos/london/dji-20250930150852-0012-d-2000.jpg",
+    "srcset": "/photos/london/dji-20250930150852-0012-d-400.jpg 400w, /photos/london/dji-20250930150852-0012-d-800.jpg 800w, /photos/london/dji-20250930150852-0012-d-1400.jpg 1400w, /photos/london/dji-20250930150852-0012-d-2000.jpg 2000w",
+    "width": 2268
+  },
+  "london/dji-20250930151352-0037-d": {
+    "aspect": 1.7778,
+    "group": "london",
+    "height": 2268,
+    "name": "dji-20250930151352-0037-d",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Posts/2. London/DJI_20250930151352_0037_D.JPG",
+    "src": "/photos/london/dji-20250930151352-0037-d-2400.jpg",
+    "srcset": "/photos/london/dji-20250930151352-0037-d-400.jpg 400w, /photos/london/dji-20250930151352-0037-d-800.jpg 800w, /photos/london/dji-20250930151352-0037-d-1400.jpg 1400w, /photos/london/dji-20250930151352-0037-d-2000.jpg 2000w, /photos/london/dji-20250930151352-0037-d-2400.jpg 2400w",
+    "width": 4032
+  },
+  "london/dji-20250930151411-0039-d-2": {
+    "aspect": 1.7778,
+    "group": "london",
+    "height": 2268,
+    "name": "dji-20250930151411-0039-d-2",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Posts/2. London/DJI_20250930151411_0039_D 2.JPG",
+    "src": "/photos/london/dji-20250930151411-0039-d-2-2400.jpg",
+    "srcset": "/photos/london/dji-20250930151411-0039-d-2-400.jpg 400w, /photos/london/dji-20250930151411-0039-d-2-800.jpg 800w, /photos/london/dji-20250930151411-0039-d-2-1400.jpg 1400w, /photos/london/dji-20250930151411-0039-d-2-2000.jpg 2000w, /photos/london/dji-20250930151411-0039-d-2-2400.jpg 2400w",
+    "width": 4032
+  },
+  "london/img-5942": {
+    "aspect": 0.5625,
+    "group": "london",
+    "height": 4032,
+    "name": "img-5942",
+    "orientation": "portrait",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000
+    ],
+    "source": "Posts/2. London/IMG_5942.JPG",
+    "src": "/photos/london/img-5942-2000.jpg",
+    "srcset": "/photos/london/img-5942-400.jpg 400w, /photos/london/img-5942-800.jpg 800w, /photos/london/img-5942-1400.jpg 1400w, /photos/london/img-5942-2000.jpg 2000w",
+    "width": 2268
+  },
+  "london/img-5943": {
+    "aspect": 1.7778,
+    "group": "london",
+    "height": 2268,
+    "name": "img-5943",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Posts/2. London/IMG_5943.JPG",
+    "src": "/photos/london/img-5943-2400.jpg",
+    "srcset": "/photos/london/img-5943-400.jpg 400w, /photos/london/img-5943-800.jpg 800w, /photos/london/img-5943-1400.jpg 1400w, /photos/london/img-5943-2000.jpg 2000w, /photos/london/img-5943-2400.jpg 2400w",
+    "width": 4032
+  },
+  "london/img-5946": {
+    "aspect": 1.7778,
+    "group": "london",
+    "height": 2268,
+    "name": "img-5946",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Posts/2. London/IMG_5946.JPG",
+    "src": "/photos/london/img-5946-2400.jpg",
+    "srcset": "/photos/london/img-5946-400.jpg 400w, /photos/london/img-5946-800.jpg 800w, /photos/london/img-5946-1400.jpg 1400w, /photos/london/img-5946-2000.jpg 2000w, /photos/london/img-5946-2400.jpg 2400w",
+    "width": 4032
+  },
+  "mount-siguniang/dji-20250815012553-0049-d-copy": {
+    "aspect": 1.7778,
+    "group": "mount-siguniang",
+    "height": 2268,
+    "name": "dji-20250815012553-0049-d-copy",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Posts/1. Mount Siguniang 1&2/DJI_20250815012553_0049_D copy.JPG",
+    "src": "/photos/mount-siguniang/dji-20250815012553-0049-d-copy-2400.jpg",
+    "srcset": "/photos/mount-siguniang/dji-20250815012553-0049-d-copy-400.jpg 400w, /photos/mount-siguniang/dji-20250815012553-0049-d-copy-800.jpg 800w, /photos/mount-siguniang/dji-20250815012553-0049-d-copy-1400.jpg 1400w, /photos/mount-siguniang/dji-20250815012553-0049-d-copy-2000.jpg 2000w, /photos/mount-siguniang/dji-20250815012553-0049-d-copy-2400.jpg 2400w",
+    "width": 4032
+  },
+  "mount-siguniang/dji-20250815035531-0084-d": {
+    "aspect": 1.7778,
+    "group": "mount-siguniang",
+    "height": 2268,
+    "name": "dji-20250815035531-0084-d",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Posts/1. Mount Siguniang 1&2/DJI_20250815035531_0084_D.JPG",
+    "src": "/photos/mount-siguniang/dji-20250815035531-0084-d-2400.jpg",
+    "srcset": "/photos/mount-siguniang/dji-20250815035531-0084-d-400.jpg 400w, /photos/mount-siguniang/dji-20250815035531-0084-d-800.jpg 800w, /photos/mount-siguniang/dji-20250815035531-0084-d-1400.jpg 1400w, /photos/mount-siguniang/dji-20250815035531-0084-d-2000.jpg 2000w, /photos/mount-siguniang/dji-20250815035531-0084-d-2400.jpg 2400w",
+    "width": 4032
+  },
+  "mount-siguniang/dji-20250815035615-0087-d": {
+    "aspect": 1.7778,
+    "group": "mount-siguniang",
+    "height": 2268,
+    "name": "dji-20250815035615-0087-d",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Posts/1. Mount Siguniang 1&2/DJI_20250815035615_0087_D.JPG",
+    "src": "/photos/mount-siguniang/dji-20250815035615-0087-d-2400.jpg",
+    "srcset": "/photos/mount-siguniang/dji-20250815035615-0087-d-400.jpg 400w, /photos/mount-siguniang/dji-20250815035615-0087-d-800.jpg 800w, /photos/mount-siguniang/dji-20250815035615-0087-d-1400.jpg 1400w, /photos/mount-siguniang/dji-20250815035615-0087-d-2000.jpg 2000w, /photos/mount-siguniang/dji-20250815035615-0087-d-2400.jpg 2400w",
+    "width": 4032
+  },
+  "mount-siguniang/dji-20250815082103-0001-d-2": {
+    "aspect": 1.7778,
+    "group": "mount-siguniang",
+    "height": 2268,
+    "name": "dji-20250815082103-0001-d-2",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Posts/1. Mount Siguniang 1&2/DJI_20250815082103_0001_D 2.JPG",
+    "src": "/photos/mount-siguniang/dji-20250815082103-0001-d-2-2400.jpg",
+    "srcset": "/photos/mount-siguniang/dji-20250815082103-0001-d-2-400.jpg 400w, /photos/mount-siguniang/dji-20250815082103-0001-d-2-800.jpg 800w, /photos/mount-siguniang/dji-20250815082103-0001-d-2-1400.jpg 1400w, /photos/mount-siguniang/dji-20250815082103-0001-d-2-2000.jpg 2000w, /photos/mount-siguniang/dji-20250815082103-0001-d-2-2400.jpg 2400w",
+    "width": 4032
+  },
+  "mount-siguniang/dji-20250815082129-0004-d": {
+    "aspect": 1.7778,
+    "group": "mount-siguniang",
+    "height": 2268,
+    "name": "dji-20250815082129-0004-d",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Posts/1. Mount Siguniang 1&2/DJI_20250815082129_0004_D.JPG",
+    "src": "/photos/mount-siguniang/dji-20250815082129-0004-d-2400.jpg",
+    "srcset": "/photos/mount-siguniang/dji-20250815082129-0004-d-400.jpg 400w, /photos/mount-siguniang/dji-20250815082129-0004-d-800.jpg 800w, /photos/mount-siguniang/dji-20250815082129-0004-d-1400.jpg 1400w, /photos/mount-siguniang/dji-20250815082129-0004-d-2000.jpg 2000w, /photos/mount-siguniang/dji-20250815082129-0004-d-2400.jpg 2400w",
+    "width": 4032
+  },
+  "mount-siguniang/dji-20250816062954-0039-d": {
+    "aspect": 1.7778,
+    "group": "mount-siguniang",
+    "height": 2268,
+    "name": "dji-20250816062954-0039-d",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Posts/1. Mount Siguniang 1&2/DJI_20250816062954_0039_D.JPG",
+    "src": "/photos/mount-siguniang/dji-20250816062954-0039-d-2400.jpg",
+    "srcset": "/photos/mount-siguniang/dji-20250816062954-0039-d-400.jpg 400w, /photos/mount-siguniang/dji-20250816062954-0039-d-800.jpg 800w, /photos/mount-siguniang/dji-20250816062954-0039-d-1400.jpg 1400w, /photos/mount-siguniang/dji-20250816062954-0039-d-2000.jpg 2000w, /photos/mount-siguniang/dji-20250816062954-0039-d-2400.jpg 2400w",
+    "width": 4032
+  },
+  "mount-siguniang/dji-20250816112051-0087-d": {
+    "aspect": 1.7778,
+    "group": "mount-siguniang",
+    "height": 2268,
+    "name": "dji-20250816112051-0087-d",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Posts/1. Mount Siguniang 1&2/DJI_20250816112051_0087_D.JPG",
+    "src": "/photos/mount-siguniang/dji-20250816112051-0087-d-2400.jpg",
+    "srcset": "/photos/mount-siguniang/dji-20250816112051-0087-d-400.jpg 400w, /photos/mount-siguniang/dji-20250816112051-0087-d-800.jpg 800w, /photos/mount-siguniang/dji-20250816112051-0087-d-1400.jpg 1400w, /photos/mount-siguniang/dji-20250816112051-0087-d-2000.jpg 2000w, /photos/mount-siguniang/dji-20250816112051-0087-d-2400.jpg 2400w",
+    "width": 4032
+  },
+  "mount-siguniang/img-4555": {
+    "aspect": 1.7778,
+    "group": "mount-siguniang",
+    "height": 2268,
+    "name": "img-4555",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Posts/1. Mount Siguniang 1&2/IMG_4555.JPG",
+    "src": "/photos/mount-siguniang/img-4555-2400.jpg",
+    "srcset": "/photos/mount-siguniang/img-4555-400.jpg 400w, /photos/mount-siguniang/img-4555-800.jpg 800w, /photos/mount-siguniang/img-4555-1400.jpg 1400w, /photos/mount-siguniang/img-4555-2000.jpg 2000w, /photos/mount-siguniang/img-4555-2400.jpg 2400w",
+    "width": 4032
+  },
+  "mount-siguniang/img-4873": {
+    "aspect": 1.7778,
+    "group": "mount-siguniang",
+    "height": 2268,
+    "name": "img-4873",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Posts/1. Mount Siguniang 1&2/IMG_4873.JPG",
+    "src": "/photos/mount-siguniang/img-4873-2400.jpg",
+    "srcset": "/photos/mount-siguniang/img-4873-400.jpg 400w, /photos/mount-siguniang/img-4873-800.jpg 800w, /photos/mount-siguniang/img-4873-1400.jpg 1400w, /photos/mount-siguniang/img-4873-2000.jpg 2000w, /photos/mount-siguniang/img-4873-2400.jpg 2400w",
+    "width": 4032
+  },
+  "mount-siguniang/img-4916": {
+    "aspect": 1.7778,
+    "group": "mount-siguniang",
+    "height": 2268,
+    "name": "img-4916",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Posts/1. Mount Siguniang 1&2/IMG_4916.JPG",
+    "src": "/photos/mount-siguniang/img-4916-2400.jpg",
+    "srcset": "/photos/mount-siguniang/img-4916-400.jpg 400w, /photos/mount-siguniang/img-4916-800.jpg 800w, /photos/mount-siguniang/img-4916-1400.jpg 1400w, /photos/mount-siguniang/img-4916-2000.jpg 2000w, /photos/mount-siguniang/img-4916-2400.jpg 2400w",
+    "width": 4032
+  },
+  "mount-siguniang/resized-1": {
+    "aspect": 1.4218,
+    "group": "mount-siguniang",
+    "height": 844,
+    "name": "resized-1",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800
+    ],
+    "source": "Posts/1. Mount Siguniang 1&2/RESIZED 1.jpeg",
+    "src": "/photos/mount-siguniang/resized-1-800.jpg",
+    "srcset": "/photos/mount-siguniang/resized-1-400.jpg 400w, /photos/mount-siguniang/resized-1-800.jpg 800w",
+    "width": 1200
+  },
+  "mount-siguniang/resized-2": {
+    "aspect": 1.4218,
+    "group": "mount-siguniang",
+    "height": 844,
+    "name": "resized-2",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800
+    ],
+    "source": "Posts/1. Mount Siguniang 1&2/RESIZED 2.jpeg",
+    "src": "/photos/mount-siguniang/resized-2-800.jpg",
+    "srcset": "/photos/mount-siguniang/resized-2-400.jpg 400w, /photos/mount-siguniang/resized-2-800.jpg 800w",
+    "width": 1200
+  },
+  "segovia/dji-20240517181821-0054-d": {
+    "aspect": 1.4205,
+    "group": "segovia",
+    "height": 5632,
+    "name": "dji-20240517181821-0054-d",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Posts/3. Segovia/DJI_20240517181821_0054_D.JPG",
+    "src": "/photos/segovia/dji-20240517181821-0054-d-2400.jpg",
+    "srcset": "/photos/segovia/dji-20240517181821-0054-d-400.jpg 400w, /photos/segovia/dji-20240517181821-0054-d-800.jpg 800w, /photos/segovia/dji-20240517181821-0054-d-1400.jpg 1400w, /photos/segovia/dji-20240517181821-0054-d-2000.jpg 2000w, /photos/segovia/dji-20240517181821-0054-d-2400.jpg 2400w",
+    "width": 8000
+  },
+  "segovia/dji-20240517182022-0057-d": {
+    "aspect": 1.7778,
+    "group": "segovia",
+    "height": 2268,
+    "name": "dji-20240517182022-0057-d",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Posts/3. Segovia/DJI_20240517182022_0057_D.JPG",
+    "src": "/photos/segovia/dji-20240517182022-0057-d-2400.jpg",
+    "srcset": "/photos/segovia/dji-20240517182022-0057-d-400.jpg 400w, /photos/segovia/dji-20240517182022-0057-d-800.jpg 800w, /photos/segovia/dji-20240517182022-0057-d-1400.jpg 1400w, /photos/segovia/dji-20240517182022-0057-d-2000.jpg 2000w, /photos/segovia/dji-20240517182022-0057-d-2400.jpg 2400w",
+    "width": 4032
+  },
+  "segovia/dji-20240517182031-0058-d": {
+    "aspect": 1.4205,
+    "group": "segovia",
+    "height": 5632,
+    "name": "dji-20240517182031-0058-d",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Posts/3. Segovia/DJI_20240517182031_0058_D.JPG",
+    "src": "/photos/segovia/dji-20240517182031-0058-d-2400.jpg",
+    "srcset": "/photos/segovia/dji-20240517182031-0058-d-400.jpg 400w, /photos/segovia/dji-20240517182031-0058-d-800.jpg 800w, /photos/segovia/dji-20240517182031-0058-d-1400.jpg 1400w, /photos/segovia/dji-20240517182031-0058-d-2000.jpg 2000w, /photos/segovia/dji-20240517182031-0058-d-2400.jpg 2400w",
+    "width": 8000
+  },
+  "segovia/dji-20240517182107-0059-d": {
+    "aspect": 1.7778,
+    "group": "segovia",
+    "height": 2268,
+    "name": "dji-20240517182107-0059-d",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Posts/3. Segovia/DJI_20240517182107_0059_D.JPG",
+    "src": "/photos/segovia/dji-20240517182107-0059-d-2400.jpg",
+    "srcset": "/photos/segovia/dji-20240517182107-0059-d-400.jpg 400w, /photos/segovia/dji-20240517182107-0059-d-800.jpg 800w, /photos/segovia/dji-20240517182107-0059-d-1400.jpg 1400w, /photos/segovia/dji-20240517182107-0059-d-2000.jpg 2000w, /photos/segovia/dji-20240517182107-0059-d-2400.jpg 2400w",
+    "width": 4032
+  },
+  "segovia/dji-20240517182222-0063-d": {
+    "aspect": 2.7574,
+    "group": "segovia",
+    "height": 4352,
+    "name": "dji-20240517182222-0063-d",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Posts/3. Segovia/DJI_20240517182222_0063_D.JPG",
+    "src": "/photos/segovia/dji-20240517182222-0063-d-2400.jpg",
+    "srcset": "/photos/segovia/dji-20240517182222-0063-d-400.jpg 400w, /photos/segovia/dji-20240517182222-0063-d-800.jpg 800w, /photos/segovia/dji-20240517182222-0063-d-1400.jpg 1400w, /photos/segovia/dji-20240517182222-0063-d-2000.jpg 2000w, /photos/segovia/dji-20240517182222-0063-d-2400.jpg 2400w",
+    "width": 12000
+  },
+  "segovia/dji-20240517182729-0074-d": {
+    "aspect": 1.7778,
+    "group": "segovia",
+    "height": 2268,
+    "name": "dji-20240517182729-0074-d",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800,
+      1400,
+      2000,
+      2400
+    ],
+    "source": "Posts/3. Segovia/DJI_20240517182729_0074_D.JPG",
+    "src": "/photos/segovia/dji-20240517182729-0074-d-2400.jpg",
+    "srcset": "/photos/segovia/dji-20240517182729-0074-d-400.jpg 400w, /photos/segovia/dji-20240517182729-0074-d-800.jpg 800w, /photos/segovia/dji-20240517182729-0074-d-1400.jpg 1400w, /photos/segovia/dji-20240517182729-0074-d-2000.jpg 2000w, /photos/segovia/dji-20240517182729-0074-d-2400.jpg 2400w",
+    "width": 4032
+  },
+  "thumbnails/chongqing": {
+    "aspect": 1.7778,
+    "group": "thumbnails",
+    "height": 720,
+    "name": "chongqing",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800
+    ],
+    "source": "Thumbnails/Chongqing.png",
+    "src": "/photos/thumbnails/chongqing-800.jpg",
+    "srcset": "/photos/thumbnails/chongqing-400.jpg 400w, /photos/thumbnails/chongqing-800.jpg 800w",
+    "width": 1280
+  },
+  "thumbnails/kunming": {
+    "aspect": 1.7778,
+    "group": "thumbnails",
+    "height": 720,
+    "name": "kunming",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800
+    ],
+    "source": "Thumbnails/Kunming.png",
+    "src": "/photos/thumbnails/kunming-800.jpg",
+    "srcset": "/photos/thumbnails/kunming-400.jpg 400w, /photos/thumbnails/kunming-800.jpg 800w",
+    "width": 1280
+  },
+  "thumbnails/lago-maggiore": {
+    "aspect": 1.7778,
+    "group": "thumbnails",
+    "height": 720,
+    "name": "lago-maggiore",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800
+    ],
+    "source": "Thumbnails/Lago Maggiore.png",
+    "src": "/photos/thumbnails/lago-maggiore-800.jpg",
+    "srcset": "/photos/thumbnails/lago-maggiore-400.jpg 400w, /photos/thumbnails/lago-maggiore-800.jpg 800w",
+    "width": 1280
+  },
+  "thumbnails/mount-siguniang": {
+    "aspect": 1.7778,
+    "group": "thumbnails",
+    "height": 720,
+    "name": "mount-siguniang",
+    "orientation": "landscape",
+    "sizes": [
+      400,
+      800
+    ],
+    "source": "Thumbnails/Mount Siguniang.png",
+    "src": "/photos/thumbnails/mount-siguniang-800.jpg",
+    "srcset": "/photos/thumbnails/mount-siguniang-400.jpg 400w, /photos/thumbnails/mount-siguniang-800.jpg 800w",
+    "width": 1280
+  }
+}
