@@ -287,7 +287,7 @@ def socials(cls="socials"):
 
 
 def page(title, body, active, description, hero_header=False, css_extra="",
-         path=None):
+         path=None, share_image=None):
     """Wrap page content in the shared shell."""
     header_cls = " site-header--hero" if hero_header else ""
     year = date.today().year
@@ -311,7 +311,8 @@ def page(title, body, active, description, hero_header=False, css_extra="",
 <meta property="og:description" content="{html.escape(description)}">
 <meta property="og:type" content="website">
 {canonical}
-<meta property="og:image" content="https://{SITE['domain']}{full_src(SITE['hero'], 1400)}">
+<meta property="og:image" content="https://{SITE['domain']}{full_src(share_image or SITE['hero'], 1400)}">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#152739">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/favicon.png">
@@ -672,7 +673,8 @@ def build_place(place):
 """
     desc = place.get("gallery_blurb") or lead_sentence(place["body"])
     return page(place["title"], body, "Gallery", desc,
-                path=f"/gallery/{place['slug']}/")
+                path=f"/gallery/{place['slug']}/",
+                share_image=place.get("hero"))
 
 
 def build_404():
@@ -749,7 +751,8 @@ def build_films():
 {about_section()}
 """
     return page("Films", body, "Films", SECTIONS["films_intro"],
-                path="/films/")
+                path="/films/",
+                share_image=FILMS[0].get("poster") if FILMS else None)
 
 
 # --------------------------------------------------------------------
