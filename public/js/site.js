@@ -69,10 +69,62 @@
     });
   });
 
+
+  /* --- carousel -----------------------------------------------------
+     Enhancement only: without this the track stays a scroll-snapping
+     horizontal scroller, so every photograph is still reachable.      */
+
+  document.querySelectorAll("[data-carousel]").forEach(function (root) {
+    var track = root.querySelector(".carousel__track");
+    var slides = Array.prototype.slice.call(root.querySelectorAll(".carousel__slide"));
+    var prev = root.querySelector(".carousel__nav--prev");
+    var next = root.querySelector(".carousel__nav--next");
+    var count = root.querySelector(".carousel__count");
+    if (slides.length < 2) {
+      if (prev) prev.hidden = true;
+      if (next) next.hidden = true;
+    }
+    var at = 0;
+
+    function go(i) {
+      at = (i + slides.length) % slides.length;
+      track.style.transform = "translateX(" + (-at * 100) + "%)";
+      if (count) count.textContent = at + 1 + " / " + slides.length;
+      slides.forEach(function (s, n) {
+        s.setAttribute("aria-hidden", n === at ? "false" : "true");
+        var img = s.querySelector("img");
+        // Neighbours are fetched early so arrowing through feels instant.
+        if (img && Math.abs(n - at) <= 1) img.loading = "eager";
+      });
+    }
+
+    root.classList.add("is-ready");
+    go(0);
+
+    if (prev) prev.addEventListener("click", function () { go(at - 1); });
+    if (next) next.addEventListener("click", function () { go(at + 1); });
+
+    root.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(at - 1); }
+      else if (e.key === "ArrowRight") { e.preventDefault(); go(at + 1); }
+    });
+
+    var x0 = null;
+    root.addEventListener("touchstart", function (e) {
+      x0 = e.changedTouches[0].clientX;
+    }, { passive: true });
+    root.addEventListener("touchend", function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 45) go(at + (dx < 0 ? 1 : -1));
+      x0 = null;
+    }, { passive: true });
+  });
+
   /* --- lightbox ----------------------------------------------------- */
 
   var cells = Array.prototype.slice.call(
-    document.querySelectorAll(".grid__cell[data-full]")
+    document.querySelectorAll(".grid__cell[data-full], .carousel__slide[data-full]")
   );
   if (!cells.length) return;
 

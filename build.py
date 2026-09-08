@@ -338,13 +338,11 @@ def about_section():
   <div class="wrap about__inner">
     <div class="about__portrait">
       {img(SITE['portrait'], 'Samuel Salesas',
-           sizes='(max-width: 800px) 70vw, 380px', max_width=800)}
+           sizes='(max-width: 600px) 62vw, 300px', max_width=800)}
     </div>
-    <div class="about__text">
-      <h2>About Me</h2>
-      {paragraphs(SECTIONS['about'])}
-      {socials('socials socials--dark')}
-    </div>
+    <h2>About Me</h2>
+    {paragraphs(SECTIONS['about'])}
+    {socials()}
   </div>
 </section>
 """
@@ -397,6 +395,37 @@ def photo_grid(keys, place_title=""):
       {img(key, alt, sizes='(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw', max_width=1400)}
     </button>""")
     return f'<div class="grid">{"".join(cells)}</div>'
+
+
+def carousel(keys, label="Highlights"):
+    """One photograph at a time, with arrows. Falls back to a plain
+    horizontal scroller when JavaScript is unavailable."""
+    slides = []
+    for i, key in enumerate(keys):
+        p = MANIFEST.get(key)
+        if not p:
+            slides.append(f"<!-- missing photo: {key} -->")
+            continue
+        slides.append(f"""
+      <li class="carousel__slide" data-full="{full_src(key)}"
+          data-alt="{html.escape(label)}">
+        {img(key, label, sizes='(max-width: 900px) 100vw, 880px',
+             eager=(i == 0), max_width=1400)}
+      </li>""")
+
+    return f"""
+<div class="carousel" data-carousel aria-roledescription="carousel"
+     aria-label="{html.escape(label)}">
+  <button class="carousel__nav carousel__nav--prev" type="button"
+          aria-label="Previous photograph">&#8249;</button>
+  <div class="carousel__viewport">
+    <ul class="carousel__track">{"".join(slides)}</ul>
+  </div>
+  <button class="carousel__nav carousel__nav--next" type="button"
+          aria-label="Next photograph">&#8250;</button>
+  <p class="carousel__count" aria-live="polite"></p>
+</div>
+"""
 
 
 def film_block(film):
@@ -465,7 +494,7 @@ def build_home():
       travels – glimpses of coastlines, cities, and horizons that caught my eye.
       If you'd like to dive deeper into the journey, wander over to the gallery
       to explore more.</p>
-    {photo_grid(HIGHLIGHTS)}
+    {carousel(HIGHLIGHTS)}
     <p class="band__cta"><a class="button" href="/gallery/">See more</a></p>
   </div>
 </section>

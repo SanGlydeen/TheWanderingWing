@@ -646,27 +646,45 @@ p:last-child { margin-bottom: 0; }
 /* ----------------------------------------------------------------- about */
 
 .about {
-  background: var(--navy);
-  color: var(--cream);
+  background: var(--cream);
+  color: var(--navy);
   padding: var(--band) 0;
+  text-align: center;
 }
 
 .about__inner {
-  display: grid;
-  grid-template-columns: 340px 1fr;
-  gap: clamp(2rem, 5vw, 4.5rem);
-  align-items: center;
+  max-width: 620px;
+  margin-inline: auto;
+}
+
+.about__portrait {
+  width: clamp(180px, 42vw, 260px);
+  margin: 0 auto clamp(1.6rem, 4vw, 2.4rem);
 }
 
 .about__portrait img {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 2px;
+  /* An ellipse rather than a circle: the portrait is a tall frame and a
+     circle would crop his head or the peaks behind him. */
+  border-radius: 50%;
 }
 
-.about__text h2 { margin-bottom: 0.6em; }
-.about__text p { color: rgba(249, 243, 231, 0.86); max-width: 58ch; }
+.about__inner h2 { margin-bottom: 0.6em; }
+.about__inner p { color: #43576a; }
+
+.about .socials { justify-content: center; }
+
+.about .socials a {
+  border-color: rgba(21, 39, 57, 0.25);
+  background: var(--navy);
+  color: var(--cream);
+}
+.about .socials a:hover {
+  background: var(--navy-mid);
+  border-color: rgba(21, 39, 57, 0.5);
+}
 
 /* --------------------------------------------------------------- socials */
 
@@ -799,3 +817,83 @@ p:last-child { margin-bottom: 0; }
   transform: none;
   transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
 }
+
+/* -------------------------------------------------------------- carousel */
+
+.carousel {
+  position: relative;
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.carousel__viewport { overflow: hidden; border-radius: 2px; }
+
+.carousel__track {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.6s var(--ease);
+}
+
+/* Without JavaScript this stays a plain horizontal scroller rather than
+   a stack of frames nobody can reach. */
+.carousel:not(.is-ready) .carousel__track {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+.carousel:not(.is-ready) .carousel__nav,
+.carousel:not(.is-ready) .carousel__count { display: none; }
+
+.carousel__slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  cursor: zoom-in;
+}
+
+.carousel__slide img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel__nav {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  z-index: 3;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(249, 243, 231, 0.9);
+  color: var(--navy);
+  font-family: var(--display);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 16px -6px rgba(21, 39, 57, 0.5);
+  transition: background 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.carousel__nav:hover { background: var(--cream); transform: scale(1.06) translateY(-50%); }
+.carousel__nav--prev { left: clamp(-22px, -2vw, 0px); }
+.carousel__nav--next { right: clamp(-22px, -2vw, 0px); }
+
+@media (max-width: 620px) {
+  .carousel__nav--prev { left: 6px; }
+  .carousel__nav--next { right: 6px; }
+  .carousel__nav { width: 38px; height: 38px; font-size: 1.4rem; }
+}
+
+.carousel__count {
+  text-align: center;
+  margin: 1.1rem 0 0;
+  font-family: var(--display);
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+.band--dark .carousel__count { color: rgba(249, 243, 231, 0.7); }
