@@ -811,6 +811,18 @@ def main():
     if todo:
         print(f"copy still to rewrite: {', '.join(todo)}")
 
+    wrong_hero = [
+        p["title"] for p in PLACES
+        if p.get("hero") and p["hero"] in MANIFEST
+        and MANIFEST[p["hero"]]["group"] != p["slug"]
+    ]
+    if wrong_hero:
+        raise SystemExit(
+            "hero is not one of the place's own photographs: "
+            + ", ".join(wrong_hero)
+            + "\n(a film still or another place's frame has been used)"
+        )
+
     if MISSING:
         for key in sorted(set(MISSING)):
             print(f"  !! photo not in manifest, skipped: {key}", file=sys.stderr)

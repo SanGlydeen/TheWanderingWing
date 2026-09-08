@@ -3,7 +3,7 @@ title: Kunming
 region: Yunnan, China
 feature: 4
 date: 2024-06
-hero: film-stills/kunming
+hero: kunming/kunming-08
 film: o2toUXx8LyA
 photos:
   - kunming/kunming-01
