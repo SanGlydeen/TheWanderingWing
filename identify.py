@@ -13,6 +13,7 @@ import subprocess
 from collections import defaultdict
 from pathlib import Path
 
+import assignments
 import build
 
 LIB = Path(
@@ -66,51 +67,28 @@ def thumb(path, name):
 def main():
     THUMBS.mkdir(parents=True, exist_ok=True)
 
-    loose = [p for p in LIB.iterdir()
-             if p.is_file() and not p.name.startswith(".")
-             and p.suffix.lower() in (".jpg", ".jpeg", ".png")]
+    lookup = {}
+    for f in LIB.rglob("*"):
+        if f.is_file() and not f.name.startswith("."):
+            lookup.setdefault(f.stem, f)
 
-    groups = defaultdict(list)
-    for p in sorted(loose):
-        groups[taken(p)].append(p)
-
-    sections = []
-    n = 0
-    for date in sorted(groups):
-        guess, kind = GUESSES.get(date, (None, "unknown"))
-        shots = groups[date]
+    sections, n = [], 0
+    for title, meta in assignments.OPEN.items():
         cells = []
-        for p in shots:
+        for stem in meta["stems"]:
+            src_file = lookup.get(stem)
+            if not src_file:
+                continue
             n += 1
-            src = thumb(p, f"g{n:03d}")
+            src = thumb(src_file, f"open{n:02d}")
             cells.append(
                 f'<figure><img src="{src}" alt="" loading="lazy">'
-                f'<figcaption>{html.escape(p.name)}</figcaption></figure>')
-        head = (f'<span class="tag tag--guess">my guess: {html.escape(guess)}</span>'
-                if guess else
-                '<span class="tag tag--unknown">I don\'t know — please tell me</span>')
-        sections.append(f"""
-<section class="grp{' grp--unknown' if not guess else ''}">
-  <h2>{date} <small>{len(shots)} photo{'s' if len(shots) != 1 else ''}</small></h2>
-  {head}
-  <div class="shots">{''.join(cells)}</div>
-</section>""")
-
-    stray_cells = []
-    for p in STRAYS:
-        if not p.exists():
-            continue
-        n += 1
-        src = thumb(p, f"g{n:03d}")
-        stray_cells.append(
-            f'<figure><img src="{src}" alt="" loading="lazy">'
-            f'<figcaption>{html.escape(p.name)}</figcaption></figure>')
-    if stray_cells:
+                f'<figcaption>{html.escape(src_file.name)}</figcaption></figure>')
         sections.append(f"""
 <section class="grp grp--unknown">
-  <h2>Already on the site, never placed <small>{len(stray_cells)} photos</small></h2>
-  <span class="tag tag--unknown">I don't know — please tell me</span>
-  <div class="shots">{''.join(stray_cells)}</div>
+  <h2>{html.escape(title)}</h2>
+  <p class="q">{html.escape(meta["question"])}</p>
+  <div class="shots">{''.join(cells)}</div>
 </section>""")
 
     page = f"""<!doctype html>
@@ -119,7 +97,7 @@ def main():
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Which places are these?</title>
+<title>Two questions left</title>
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap">
 <link rel="stylesheet" href="{build.CSS_HREF}">
@@ -127,35 +105,31 @@ def main():
   body {{ background: var(--paper); }}
   .idwrap {{ width: min(100% - 2rem, 1100px); margin: 0 auto;
              padding: clamp(2rem, 6vw, 4rem) 0 6rem; }}
-  .grp {{ margin-bottom: clamp(2.5rem, 6vw, 4rem);
-          padding-bottom: clamp(2rem, 4vw, 3rem);
-          border-bottom: 1px solid var(--rule); }}
-  .grp h2 {{ margin-bottom: 0.4rem; }}
-  .grp h2 small {{ font-size: 0.5em; color: var(--muted);
-                   letter-spacing: 0.12em; text-transform: uppercase; }}
-  .grp--unknown {{ background: #fff8ef; padding: 1.5rem;
-                   border: 1px solid rgba(200, 120, 40, 0.3); border-radius: 3px; }}
-  .tag {{ display: inline-block; font-family: var(--display);
-          font-size: 0.95rem; letter-spacing: 0.12em; text-transform: uppercase;
-          padding: 0.3rem 0.8rem; border-radius: 2px; margin-bottom: 1.4rem; }}
-  .tag--guess {{ background: var(--cream); color: #3a4f63; }}
-  .tag--unknown {{ background: #c2701f; color: #fff; }}
+  .grp {{ margin-bottom: clamp(2rem, 5vw, 3rem); padding: 1.6rem;
+          background: #fff8ef; border: 1px solid rgba(200, 120, 40, 0.3);
+          border-radius: 3px; }}
+  .grp h2 {{ margin-bottom: 0.3rem; font-size: clamp(1.5rem, 3vw, 2rem); }}
+  .q {{ color: #6b4a22; max-width: 62ch; margin-bottom: 1.4rem; }}
   .shots {{ display: grid; gap: 0.6rem;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }}
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }}
   .shots figure {{ margin: 0; }}
   .shots img {{ width: 100%; aspect-ratio: 3/4; object-fit: cover;
                 border-radius: 2px; background: var(--cream-deep); }}
   .shots figcaption {{ font-size: 0.72rem; color: var(--muted);
                        margin-top: 0.3rem; word-break: break-all; }}
+  .done {{ background: var(--cream); border: 0; padding: 1.4rem 1.6rem;
+           border-radius: 3px; }}
 </style>
 </head>
 <body>
 <div class="idwrap">
-  <h1>Which places are these?</h1>
-  <p class="measure">The orange blocks are ones I can't place at all. The rest
-  are my guesses from the dates — tell me if any are wrong. Once these are
-  settled I can file the whole library by place.</p>
+  <h1>Two questions left</h1>
+  <p class="measure">Everything else is filed — 95 photographs across 11
+  places. These 7 are the last of it.</p>
   {''.join(sections)}
+  <p class="done"><strong>Once these are answered</strong> I run the
+  migration: every photograph filed by place with a readable name, 14
+  byte-identical duplicates dropped, and all 59 new portraits folded in.</p>
   <p><a class="link-arrow" href="/">Back to the site</a></p>
 </div>
 </body>
@@ -163,7 +137,7 @@ def main():
 """
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "index.html").write_text(page)
-    print(f"wrote /identify/ — {n} photographs across {len(groups) + 1} groups")
+    print(f"wrote /identify/ — {n} photographs, {len(assignments.OPEN)} questions")
 
 
 if __name__ == "__main__":

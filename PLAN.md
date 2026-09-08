@@ -3,6 +3,9 @@
 Living document. I keep this current so you don't have to remember where
 things stand. Last updated: 8 September 2026.
 
+**Places now on file:** Canterbury, Chongqing, Devon, Dover, Kunming,
+Lago Maggiore, Leshan, London, Menorca, Mount Siguniang, Segovia, Toledo.
+
 ---
 
 ## Where we are
@@ -19,10 +22,9 @@ Nothing moves on these until you answer.
 
 | # | What I need | Why it's blocked |
 |---|---|---|
-| B1 | **Identify 15 photographs** — see [/identify/](https://thewanderingwing.com/identify/) | 4 date-groups are from trips I have nothing else from. I won't guess at your own photos. |
-| B2 | **Confirm 6 date-group guesses** — same page | Dates are strong evidence but not proof. |
-| B3 | **The copy, place by place** | Tell me what you actually remember about Siguniang, Segovia, Menorca, Lago Maggiore, London, Chongqing. I cut it down. 6 places still flagged. |
-| B4 | **The tagline** | "I don't fly a machine, I fly" pins the site to the drone. Keep, change, or drop — your call, and it matters before camera work lands. |
+| B1 | **Two questions, 7 photographs** — see [/identify/](https://thewanderingwing.com/identify/) | The spelling of "Sujo", and which of three November shots are Canterbury vs Dover. Everything else is filed: 95 photographs, 11 places. |
+| B2 | **The copy, place by place** | Tell me what you actually remember about Siguniang, Segovia, Menorca, Lago Maggiore, London, Chongqing. I cut it down. 6 places still flagged. |
+| B3 | **The tagline** | "I don't fly a machine, I fly" pins the site to the drone. Keep, change, or drop — your call, and it matters before camera work lands. |
 
 ---
 
@@ -30,12 +32,12 @@ Nothing moves on these until you answer.
 
 1. **Reorganise the photo library** — script written and dry-run clean
    (`reorganise.py`). Files by place with readable names, 14 byte-identical
-   duplicates dropped, 59 new portraits folded in. **Waiting on B1/B2.**
+   duplicates dropped, 59 new portraits folded in. **Waiting on B1.**
 2. **Immersive hover** — currently the photo widens to the full screen
    width but keeps the row height, so it reads as a zoom rather than an
    immersion. Should fill the whole viewport, and contract as soon as the
    cursor leaves where the photo used to be.
-3. **Rewrite the copy** with you (B3).
+3. **Rewrite the copy** with you (B2).
 4. **Use the portraits** — 55 of the new photos are portrait, which fixes
    phone heroes cropping badly.
 
