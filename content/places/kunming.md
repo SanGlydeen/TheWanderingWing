@@ -2,7 +2,9 @@
 title: Kunming
 region: Yunnan, China
 feature: 4
-date: 2024-06  # Samuel's account; the DJI filenames say July, clock was out
+# Samuel's account. The DJI filenames say July and one says December;
+# his visits were June and December, so the drone's clock was out.
+date: 2024-06
 hero: kunming/kunming-08
 film: o2toUXx8LyA
 photos:
