@@ -81,6 +81,14 @@ See README.md for how to add a place. PLAN.md is the live status document.
   carry content hashes for this reason. Photographs do not, so their cache
   is capped at thirty days.
 
+## Where the file metadata is wrong
+
+Kunming's photographs carry July 2024 in their DJI filenames, and one
+carries December. Samuel says he visited in **June 2024** and again in
+**December 2024** — so the drone's clock was most likely a month out. The
+page says June on his instruction. Do not "correct" it back from the
+metadata: his account wins.
+
 ## Open questions for Samuel
 
 Four places say almost nothing because nothing is known about them:
