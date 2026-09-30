@@ -28,6 +28,6 @@ photos:
   - menorca/menorca-19
 gallery_blurb: July 2025, working my way round the island.
 ---
-Cap de Cavalleria is as far north as Menorca goes: a lighthouse on a headland, and then nothing.
+Cap de Cavalleria is as far north as Menorca goes, just a lighthouse on a headland.
 
-Arenal d'en Castell is over on the north coast, a bay that's almost a full circle. Ciutadella is at the opposite end of the island entirely.
+Arenal d'en Castell is a bay on the north coast that's almost a full circle. Ciutadella is right at the other end of the island.

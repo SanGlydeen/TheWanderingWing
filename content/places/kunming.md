@@ -20,6 +20,6 @@ photos:
   - kunming/stone-forest-02
 gallery_blurb: June 2024, my first time back in China since 2019.
 ---
-It surprised me — more relaxed than the cities I had known. I liked it enough to come back that December.
+It surprised me – it was more relaxed than the cities I'd known. I liked it enough to come back that December.
 
-The city sits between ridges with Dianchi Lake spread out below it. The last two here are from the stone forest, outside the city.
+The city is between two ridges, with Dianchi Lake below it. The last two photos are from the stone forest outside the city.

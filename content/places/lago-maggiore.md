@@ -10,4 +10,4 @@ photos:
   - lago-maggiore/lago-maggiore-03
 gallery_blurb: July 2024, straight after Kunming.
 ---
-The Borromean Islands sit close together off Stresa, each one more or less taken up by a single building.
+The Borromean Islands are just off Stresa, close together, and each one is more or less taken up by a single building.

@@ -6,6 +6,6 @@ place: lago-maggiore
 poster: film-stills/lago-maggiore
 needs_rewrite: yes
 ---
-Lago Maggiore runs up into the Alps from Piedmont.
+Lago Maggiore runs from Piedmont up into the Alps.
 
-I had just come back from Kunming, which made the quiet of it land harder than it might have otherwise. Boats crossing, the Borromean Islands sitting out in the middle of the lake.
+I'd just got back from Kunming, so it felt really quiet. Boats going back and forth, and the Borromean Islands out in the lake.

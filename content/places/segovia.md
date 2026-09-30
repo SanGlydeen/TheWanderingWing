@@ -16,6 +16,6 @@ photos:
   - segovia/segovia-09
 gallery_blurb: May 2024.
 ---
-The Alcázar stands on a spur where two rivers meet, which is why it ends up shaped like the prow of a ship.
+The Alcázar is built on a spur where two rivers meet, which is why it's shaped like the front of a ship.
 
-One of these is a panorama of the whole ridge it sits on.
+One of these is a panorama of the whole ridge.

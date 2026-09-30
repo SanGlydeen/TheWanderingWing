@@ -6,6 +6,4 @@ place: mount-siguniang
 poster: film-stills/mount-siguniang
 needs_rewrite: yes
 ---
-Mount Siguniang sits in western Sichuan.
-
-I went in August 2025, as part of a longer trip around Chengdu.
+Mount Siguniang is in western Sichuan. I went in August 2025 as part of a longer trip around Chengdu.

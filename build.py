@@ -541,10 +541,9 @@ def build_home():
 <section class="band" id="highlights">
   <div class="wrap">
     <h2 class="band__title">My Highlights</h2>
-    <p class="band__text measure">Here you'll find a few more scenes from my
-      travels – glimpses of coastlines, cities, and horizons that caught my eye.
-      If you'd like to dive deeper into the journey, wander over to the gallery
-      to explore more.</p>
+    <p class="band__text measure">Some of my favourite shots from the last
+      couple of years. There are plenty more in the gallery if you want to have
+      a look around.</p>
     {carousel(HIGHLIGHTS)}
     <p class="band__cta"><a class="button" href="/gallery/">See more</a></p>
   </div>
@@ -553,9 +552,8 @@ def build_home():
 <section class="band band--dark" id="latest-film">
   <div class="wrap">
     <h2 class="band__title">My Latest Film</h2>
-    <p class="band__text measure">Here you'll find my latest film. Think of it
-      as a little invitation to wander with me – to join me on a voyage through
-      the skies, where each flight reveals the world in a new light.</p>
+    <p class="band__text measure">Here's the most recent film I've put together.
+      If you enjoy it, the others are all on the films page.</p>
     <div class="band__film">{film_block(latest)}</div>
     <p class="band__cta"><a class="button button--light" href="/films/">All films</a></p>
   </div>
@@ -577,7 +575,7 @@ def elsewhere_teaser():
 <section class="band band--quiet">
   <div class="wrap">
     <h2 class="band__title">Elsewhere</h2>
-    <p class="band__text measure">Shorter visits — {html.escape(listed)}.
+    <p class="band__text measure">Shorter visits – {html.escape(listed)}.
       {total} photographs between them.</p>
     <p class="band__cta"><a class="button" href="/gallery/elsewhere/">See them</a></p>
   </div>
