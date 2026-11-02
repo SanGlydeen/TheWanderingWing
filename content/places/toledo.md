@@ -8,4 +8,4 @@ photos:
   - toledo/toledo-02
 gallery_blurb: December 2025.
 ---
-The old city is inside a bend in the Tagus, so the river goes round three sides of it.
+Toledo's old city is built inside a bend in the Tagus, so the river goes round three sides of it.

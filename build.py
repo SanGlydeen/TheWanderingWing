@@ -94,6 +94,14 @@ def lead_sentence(text):
     return first.replace("\n", " ").strip()
 
 
+def listing(names):
+    """`a, b, and c`, with the Oxford comma."""
+    names = list(names)
+    if len(names) < 3:
+        return " and ".join(names)
+    return ", ".join(names[:-1]) + ", and " + names[-1]
+
+
 def is_true(v):
     return str(v).strip().lower() in ("yes", "true", "1")
 
@@ -291,7 +299,7 @@ def page(title, body, active, description, hero_header=False, css_extra="",
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{html.escape(title)} · {html.escape(SITE['name'])}</title>
+<title>{html.escape(title)} | {html.escape(SITE['name'])}</title>
 <meta name="description" content="{html.escape(description)}">
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{html.escape(description)}">
@@ -376,7 +384,7 @@ def about_section():
       {img(SITE['portrait'], 'Samuel Salesas',
            sizes='(max-width: 600px) 62vw, 300px', max_width=800)}
     </div>
-    <h2>About Me</h2>
+    <h2>About me</h2>
     {paragraphs(SECTIONS['about'])}
   </div>
 </section>
@@ -392,7 +400,7 @@ def feature_block(place, index):
     link = ""
     if place["photos"]:
         link = (f'<a class="link-arrow" href="/gallery/{place["slug"]}/">'
-                f'See the photographs</a>')
+                f'See the photos</a>')
     elif place.get("film"):
         link = '<a class="link-arrow" href="/films/">Watch the film</a>'
 
@@ -403,7 +411,7 @@ def feature_block(place, index):
          sizes='(max-width: 900px) 100vw, 62vw', max_width=2000)}
   </div>
   <div class="feature__body">
-    <p class="eyebrow">{html.escape(' · '.join(meta_bits))}</p>
+    <p class="eyebrow">{html.escape(' | '.join(meta_bits))}</p>
     <h2>{html.escape(title)}</h2>
     {paragraphs(place['body'])}
     {link}
@@ -540,7 +548,7 @@ def build_home():
 
 <section class="band" id="highlights">
   <div class="wrap">
-    <h2 class="band__title">My Highlights</h2>
+    <h2 class="band__title">My highlights</h2>
     <p class="band__text measure">Some of my favourite shots from the last
       couple of years. There are plenty more in the gallery if you want to have
       a look around.</p>
@@ -551,7 +559,7 @@ def build_home():
 
 <section class="band band--dark" id="latest-film">
   <div class="wrap">
-    <h2 class="band__title">My Latest Film</h2>
+    <h2 class="band__title">My latest film</h2>
     <p class="band__text measure">Here's the most recent film I've put together.
       If you enjoy it, the others are all on the films page.</p>
     <div class="band__film">{film_block(latest)}</div>
@@ -568,16 +576,15 @@ def build_home():
 def elsewhere_teaser():
     if not ELSEWHERE:
         return ""
-    names = [p["title"] for p in ELSEWHERE]
-    listed = ", ".join(names[:-1]) + " and " + names[-1] if len(names) > 1 else names[0]
+    listed = listing(p["title"] for p in ELSEWHERE)
     total = sum(len(p["photos"]) for p in ELSEWHERE)
     return f"""
 <section class="band band--quiet">
   <div class="wrap">
     <h2 class="band__title">Elsewhere</h2>
-    <p class="band__text measure">Shorter visits – {html.escape(listed)}.
-      {total} photographs between them.</p>
-    <p class="band__cta"><a class="button" href="/gallery/elsewhere/">See them</a></p>
+    <p class="band__text measure">I've also got {total} photos from some
+      shorter trips, to {html.escape(listed)}.</p>
+    <p class="band__cta"><a class="button" href="/gallery/elsewhere/">See the photos</a></p>
   </div>
 </section>
 """
@@ -596,10 +603,10 @@ def build_gallery_index():
            sizes='(max-width: 800px) 100vw, 46vw', max_width=1400)}
     </div>
     <div class="card__body">
-      <p class="eyebrow">{html.escape(' · '.join(meta_bits))}</p>
+      <p class="eyebrow">{html.escape(' | '.join(meta_bits))}</p>
       <h2>{html.escape(p['title'])}</h2>
       <p>{html.escape(blurb)}</p>
-      <span class="link-arrow">{len(p['photos'])} photographs</span>
+      <span class="link-arrow">{len(p['photos'])} photos</span>
     </div>
   </a>""")
 
@@ -634,7 +641,7 @@ def build_place(place):
     body = f"""
 <section class="page-head page-head--place">
   <div class="wrap">
-    <p class="eyebrow">{html.escape(' · '.join(meta_bits))}</p>
+    <p class="eyebrow">{html.escape(' | '.join(meta_bits))}</p>
     <h1>{html.escape(place['title'])}</h1>
     <div class="measure">{paragraphs(place['body'])}</div>
   </div>
@@ -665,11 +672,11 @@ def build_404():
 <section class="page-head">
   <div class="wrap">
     <p class="eyebrow">Error 404</p>
-    <h1>Off the map</h1>
+    <h1>Page not found</h1>
     <div class="measure">
-      <p>This page does not exist, or it has wandered off since you last
-      looked. The <a href="/gallery/">gallery</a> and the
-      <a href="/films/">films</a> are both still where they should be.</p>
+      <p>Sorry, there's nothing here. The page might have moved, or the link
+      might be wrong. The <a href="/gallery/">gallery</a> and the
+      <a href="/films/">films</a> are both still where they were.</p>
     </div>
     <p style="margin-top:2.5rem"><a class="button" href="/">Back home</a></p>
   </div>
@@ -681,7 +688,7 @@ def build_404():
 def build_elsewhere():
     blocks = []
     for place in ELSEWHERE:
-        meta = " · ".join(b for b in (place.get("region"),
+        meta = " | ".join(b for b in (place.get("region"),
                                       pretty_date(place.get("date"))) if b)
         blocks.append(f"""
 <section class="elsewhere__place">
@@ -697,8 +704,8 @@ def build_elsewhere():
 <section class="page-head">
   <div class="wrap">
     <h1>Elsewhere</h1>
-    <p class="measure">Places I passed through rather than stayed in. Each
-    of these will get a page of its own once there is more of it.</p>
+    <p class="measure">These are the places I've only got a few photos from
+    so far. Once I've got more from one of them, it'll get its own page.</p>
   </div>
 </section>
 
@@ -712,7 +719,8 @@ def build_elsewhere():
 </section>
 """
     return page("Elsewhere", body, "Gallery",
-                "Shorter visits: " + ", ".join(p["title"] for p in ELSEWHERE) + ".",
+                "Photos from shorter trips to "
+                + listing(p["title"] for p in ELSEWHERE) + ".",
                 path="/gallery/elsewhere/")
 
 
@@ -824,7 +832,7 @@ def main():
     if MISSING:
         for key in sorted(set(MISSING)):
             print(f"  !! photo not in manifest, skipped: {key}", file=sys.stderr)
-        raise SystemExit(f"{len(set(MISSING))} photo(s) missing — "
+        raise SystemExit(f"{len(set(MISSING))} photo(s) missing: "
                          f"run photos.py or fix the key")
 
 

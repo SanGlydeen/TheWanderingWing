@@ -26,8 +26,8 @@ photos:
   - menorca/menorca-17
   - menorca/menorca-18
   - menorca/menorca-19
-gallery_blurb: July 2025, working my way round the island.
+gallery_blurb: I went round lots of different parts of the island.
 ---
-Cap de Cavalleria is as far north as Menorca goes, just a lighthouse on a headland.
+The lighthouse at Cap de Cavalleria is as far north as you can get on Menorca, and Ciutadella is right at the other end of the island.
 
-Arenal d'en Castell is a bay on the north coast that's almost a full circle. Ciutadella is right at the other end of the island.
+Arenal d'en Castell is a bay on the north coast, and from up there you can see it's almost a perfect circle.

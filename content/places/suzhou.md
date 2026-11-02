@@ -10,4 +10,4 @@ photos:
   - suzhou/suzhou-04
 gallery_blurb: December 2025.
 ---
-December 2025.
+Suzhou is full of canals, so most of these are from over the water. One of them shows part of the old city wall.

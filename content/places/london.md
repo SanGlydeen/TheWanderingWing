@@ -12,6 +12,6 @@ photos:
   - london/london-06
   - london/london-07
   - london/london-08
-gallery_blurb: September 2025.
+gallery_blurb: These are all along the Thames, from Tower Bridge out to Canary Wharf.
 ---
-September 2025.
+These are all along the Thames, from Tower Bridge and the Shard out east to Canary Wharf. It was a really clear day.

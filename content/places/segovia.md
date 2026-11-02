@@ -14,8 +14,8 @@ photos:
   - segovia/segovia-07
   - segovia/segovia-08
   - segovia/segovia-09
-gallery_blurb: May 2024.
+gallery_blurb: These are mostly of the Alcázar and the old town.
 ---
-The Alcázar is built on a spur where two rivers meet, which is why it's shaped like the front of a ship.
+The Alcázar is right on the end of a ridge where two rivers meet, so from above it looks like the front of a ship.
 
-One of these is a panorama of the whole ridge.
+One of the photos is a panorama of the whole ridge.

@@ -9,4 +9,4 @@ photos:
   - devon/devon-03
 gallery_blurb: May 2026.
 ---
-May 2026.
+The cliffs along this bit of the coast are bright red, and the beach underneath them is all pebbles.

@@ -6,6 +6,6 @@ place: chongqing
 poster: film-stills/chongqing
 needs_rewrite: no
 ---
-Chongqing is where the Jialing runs into the Yangtze, and it's all hills and bridges.
+Chongqing is where the Jialing runs into the Yangtze, and the whole city is hills and bridges.
 
-After Chengdu and Kunming it felt relentless – neon all over the skyline, and the smell of hotpot everywhere at night.
+After Chengdu and Kunming it felt relentless, with neon all over the skyline and the smell of hotpot everywhere at night.

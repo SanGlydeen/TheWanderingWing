@@ -20,8 +20,8 @@ photos:
   - chongqing/chongqing-11
   - chongqing/chongqing-12
   - chongqing/chongqing-13
-gallery_blurb: December 2024, where the Jialing runs into the Yangtze.
+gallery_blurb: Chongqing is where the Jialing runs into the Yangtze.
 ---
-The city is built up the sides of its hills, so the bridges cross at different heights and the towers go on back into the haze.
+Chongqing is built on hills, so the whole city is on different levels. The bridges cross at different heights and the towers keep going back into the haze.
 
-After Chengdu and Kunming it felt relentless – neon all over the skyline, and the smell of hotpot everywhere at night.
+After Chengdu and Kunming it felt relentless, with neon all over the skyline and the smell of hotpot everywhere at night.

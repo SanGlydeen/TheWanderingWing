@@ -8,4 +8,4 @@ photos:
   - dover/white-cliffs-02
 gallery_blurb: The same grey afternoon as Canterbury.
 ---
-The white cliffs, with South Foreland lighthouse on top.
+These are the white cliffs, with the South Foreland lighthouse up on top. It was the same afternoon as Canterbury.

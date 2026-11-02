@@ -13,15 +13,15 @@ youtube: https://www.youtube.com/@TheWanderingWing
 ## intro
 The world looks different when you take to the sky.
 
-This is where the films and photographs end up – thirteen places so far, from Sichuan to Menorca.
+This is where I put the films and photos from my trips. There are thirteen places on here so far, from Sichuan to Menorca, and hopefully plenty more to come.
 
-Maybe you'll agree that height changes how a place reads. Maybe you'll just enjoy the view. Either way, I'm glad you're here.
+I think you notice a lot more about a place when you see it from above. Maybe you'll agree, maybe you'll just enjoy the view. Either way, I'm glad you're here.
 
 ## about
-Hi, I'm Samuel – a Politics and Economics student who's endlessly curious about people, places, and ideas. I learn languages, chase new cultures, and film the world as I see it – always searching for fresh perspectives from the ground and the sky.
+Hi, I'm Samuel. I study Politics and Economics, and I love learning languages and getting to know new places and the people in them. The Wandering Wing started as somewhere to put my drone footage, and these days I take a camera along as well.
 
 ## gallery_intro
-Everywhere I've flown, newest first. Places I stayed a while get their own page, and the shorter stops are at the bottom.
+Here's everywhere I've been so far, starting with the most recent. The places I got the most photos of have their own page, and the shorter stops are all together at the bottom.
 
 ## films_intro
-Four so far. Each one is a trip cut down to a few minutes.
+I've made four films so far, and each one is a whole trip cut down to a few minutes.

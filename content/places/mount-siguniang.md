@@ -27,8 +27,8 @@ photos:
   - mount-siguniang/rilong-town-01
   - mount-siguniang/rilong-town-02
   - mount-siguniang/rilong-town-03
-gallery_blurb: Four peaks in western Sichuan, on a longer trip around Chengdu in August 2025.
+gallery_blurb: Siguniang is four peaks in western Sichuan, and I went as part of a longer trip around Chengdu.
 ---
-Three valleys run up from Rilong, the town at the bottom: Haizi, Shuangqiao and Changping. I flew Haizi and Changping.
+There are three valleys that run up from Rilong, the town at the bottom: Haizi, Shuangqiao and Changping. I flew in Haizi and Changping.
 
-Changping is grazing land. You hear the yak bells a good while before you see the yaks.
+Changping is mostly grazing land, so there were yaks everywhere, and you could hear their bells all over the valley.
